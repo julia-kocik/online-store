@@ -1,11 +1,33 @@
 import React from 'react'
-import Cart from './components/routes/Cart/Cart'
+import {
+  createBrowserRouter,
+  RouterProvider
+} from 'react-router-dom'
+import Home from './components/routes/Home/Home'
+import Navigation from './components/routes/Navigation/Navigation'
+import Shop from './components/routes/Shop/Shop'
 
-function App () {
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Navigation />,
+    children: [
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        path: 'shop',
+        element: <Shop />
+      }
+    ]
+  }
+])
+
+const App = (): JSX.Element => {
   return (
     <div className="App">
-      Hello
-      <Cart/>
+      <RouterProvider router={router} />
     </div>
   )
 }
