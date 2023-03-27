@@ -1,10 +1,13 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import { NavigationContainer } from './NavigationStyles'
 
 const Navigation = (): JSX.Element => {
   return (
     <div>
-        Navigation
+        <NavigationContainer>
+
+        </NavigationContainer>
         <Outlet/>
     </div>
   )
