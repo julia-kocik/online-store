@@ -5,4 +5,5 @@ export const NavigationContainer = styled.div`
   color: #fff;
   height: 80px;
   width: 100%; 
+  display: flex;
 `
