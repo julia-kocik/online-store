@@ -6,7 +6,6 @@ const CartIcon = (): JSX.Element => {
   return (
     <CartContainer>
       <BsFillCartCheckFill/>
-      Helko
     </CartContainer>
   )
 }
