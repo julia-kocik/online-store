@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../../colors'
+import { BsFillCartCheckFill } from 'react-icons/bs'
 
 export const LogoContainer = styled.div`
   background-color: ${colors.white};
@@ -16,5 +17,9 @@ export const LogoInnerContainer = styled.div`
   align-items: center;
   h2 {
     padding-left: 10px;
+    font-size: 24px;
   }
+`
+export const StyledLogo = styled(BsFillCartCheckFill)`
+  font-size: 48px;
 `

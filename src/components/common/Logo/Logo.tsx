@@ -1,12 +1,11 @@
 import React from 'react'
-import { LogoContainer, LogoInnerContainer } from './LogoStyles'
-import { BsFillCartCheckFill } from 'react-icons/bs'
+import { LogoContainer, LogoInnerContainer, StyledLogo } from './LogoStyles'
 
 const Logo = (): JSX.Element => {
   return (
     <LogoContainer>
       <LogoInnerContainer>
-        <BsFillCartCheckFill/>
+        <StyledLogo/>
         <h2>HappyCart</h2>
       </LogoInnerContainer>
     </LogoContainer>
