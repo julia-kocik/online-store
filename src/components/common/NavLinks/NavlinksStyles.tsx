@@ -5,6 +5,7 @@ import { colors } from '../../../colors'
 export const NavlinksContainer = styled.div`
   flex: 0 0 25%;
   color: ${colors.green};
+  border: 1px solid ${colors.green};
 `
 export const NavlinksList = styled.ul`
   list-style-type: none;
