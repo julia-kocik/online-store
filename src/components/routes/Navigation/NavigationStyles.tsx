@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import { styles } from '../../../colors'
+import { colors } from '../../../colors'
 
 export const NavigationContainer = styled.div`
-  background-color: blue;
-  color: ${styles.white};
+  color: ${colors.white};
   height: 80px;
   width: 100%; 
   display: flex;

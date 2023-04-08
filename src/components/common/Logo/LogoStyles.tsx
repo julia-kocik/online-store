@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { styles } from '../../../colors'
+import { colors } from '../../../colors'
 
 export const LogoContainer = styled.div`
-  background-color: ${styles.green};
-  color: #fff;
+  background-color: ${colors.white};
+  color: ${colors.green};
   flex: 0 0 15%;
   display: flex;
   justify-content: center;
