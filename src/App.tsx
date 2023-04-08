@@ -6,6 +6,7 @@ import {
 import Home from './components/routes/Home/Home'
 import Navigation from './components/routes/Navigation/Navigation'
 import Shop from './components/routes/Shop/Shop'
+import GlobalStyles from './GlobalStyles'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
 const App = (): JSX.Element => {
   return (
     <div className="App">
+      <GlobalStyles />
       <RouterProvider router={router} />
     </div>
   )
