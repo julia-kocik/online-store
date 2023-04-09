@@ -4,7 +4,6 @@ import { BsFillCartCheckFill } from 'react-icons/bs'
 
 export const LogoContainer = styled.div`
   background-color: ${colors.white};
-  border: 1px solid ${colors.green};
   color: ${colors.green};
   flex: 0 0 15%;
   display: flex;

@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { colors } from '../../../colors'
 
 export const NavlinksContainer = styled.div`
-  flex: 0 0 25%;
+  flex: 0 0 45%;
   color: ${colors.green};
-  border: 1px solid ${colors.green};
 `
 export const NavlinksList = styled.ul`
   list-style-type: none;
@@ -14,7 +13,8 @@ export const NavlinksList = styled.ul`
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
+  padding-right: 1rem;
 `
 
 export const NavlinksLinks = styled.li`

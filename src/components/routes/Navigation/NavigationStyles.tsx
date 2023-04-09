@@ -6,4 +6,5 @@ export const NavigationContainer = styled.div`
   height: 80px;
   width: 100%; 
   display: flex;
+  border-bottom: 1px solid ${colors.lightgray};
 `

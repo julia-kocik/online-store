@@ -1,9 +1,12 @@
 import React from 'react'
-import { SearchbarContainer } from './SearchbarStyles'
+import { SearchbarContainer, StyledSearchIcon, StyledSearchInput } from './SearchbarStyles'
 
 const SearchBar = (): JSX.Element => {
   return (
-    <SearchbarContainer></SearchbarContainer>
+    <SearchbarContainer>
+        <StyledSearchInput type="text" name="search" id="search" placeholder='Search Product'/>
+        <StyledSearchIcon/>
+    </SearchbarContainer>
   )
 }
 
