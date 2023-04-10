@@ -23,11 +23,20 @@ const Categories = (): JSX.Element => {
 
   return (
     <div>
-      {Object.keys(products).map(product => (
-        <div key={product}>
-          <h2>{product}</h2>
+      {Object.keys(products).map(category => {
+        const productsPerCategory = products[category]
+        return (
+        <div key={category}>
+          <h2>{category}</h2>
+          <div>
+            {productsPerCategory.map(item => (
+              <h3 key={item}>{item.title}</h3>
+            ))}
+          </div>
         </div>
-      ))}
+        )
+      }
+      )}
     </div>
   )
 }
