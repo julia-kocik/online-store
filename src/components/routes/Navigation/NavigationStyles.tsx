@@ -7,4 +7,5 @@ export const NavigationContainer = styled.div`
   width: 100%; 
   display: flex;
   border-bottom: 1px solid ${colors.lightgray};
+  margin-top: 1rem;
 `

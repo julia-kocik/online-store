@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom'
+import Topbar from './components/features/TopBar/Topbar'
 import Home from './components/routes/Home/Home'
 import Navigation from './components/routes/Navigation/Navigation'
 import Shop from './components/routes/Shop/Shop'
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
 const App = (): JSX.Element => {
   return (
     <div className="App">
+      <Topbar/>
       <GlobalStyles />
       <RouterProvider router={router} />
     </div>
