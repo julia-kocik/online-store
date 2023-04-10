@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from 'react'
-
-type Category = string
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProducts } from '../../../redux/productSlice'
+import { type AppDispatch, type RootState } from '../../../redux/store'
 
 const Categories = (): JSX.Element => {
-  const [categories, setCategories] = useState<Category[]>([])
+  const dispatch = useDispatch<AppDispatch>()
+  const products = useSelector((state: RootState) => state.products.data)
+  const status = useSelector((state: RootState) => state.products.status)
+  const error = useSelector((state: RootState) => state.products.error)
+
   useEffect(() => {
-    const fetchCategories = async (): Promise<void> => {
-      const response = await fetch('https://fakestoreapi.com/products')
-      const products = await response.json()
-      const categories = products.map(item => item.category)
-      setCategories(Array.from(new Set(categories)))
-    }
-    fetchCategories()
-  }, [])
+    dispatch(fetchProducts())
+  }, [dispatch])
+
+  if (status === 'loading') {
+    return <div>Loading...</div>
+  }
+
+  if (status === 'failed') {
+    return <div>Error: {error}</div>
+  }
 
   return (
     <div>
-      {categories.map(category => (
-        <div key={category}>
-          <h2>{category}</h2>
+      {Object.keys(products).map(product => (
+        <div key={product}>
+          <h2>{product}</h2>
         </div>
       ))}
     </div>
