@@ -2,6 +2,7 @@ import { IoIosArrowDown } from 'react-icons/io'
 import styled from 'styled-components'
 import { colors } from '../../../colors'
 import { type HTMLAttributes } from 'react'
+import { Link } from 'react-router-dom'
 
 export const NavlinksContainer = styled.div`
   flex: 0 0 45%;
@@ -47,4 +48,9 @@ export const StyledArrowIcon = styled(IoIosArrowDown)`
   font-size: 1rem;
   margin-left: 0.5rem;
   cursor: pointer;
+`
+
+export const StyledRouterLink = styled(Link)`
+  color: ${colors.white};
+  text-decoration: none;
 `

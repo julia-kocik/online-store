@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavlinksContainer, NavlinksLinks, NavlinksList, NavlinksSubList, StyledArrowIcon } from './NavlinksStyles'
+import { NavlinksContainer, NavlinksLinks, NavlinksList, NavlinksSubList, StyledArrowIcon, StyledRouterLink } from './NavlinksStyles'
 import { useDispatch, useSelector } from 'react-redux'
 import { type AppDispatch, type RootState } from '../../../redux/store'
 import { fetchProducts } from '../../../redux/productSlice'
@@ -33,7 +33,11 @@ const Navlinks = (): JSX.Element => {
           Categories
           <NavlinksSubList visibility={visibility ? 'visible' : 'hidden'}>
             {Object.keys(products).map(category => (
-              <li key={category}>{category}</li>
+              <li key={category}>
+                <StyledRouterLink to={`/${category}`}>
+                  {category}
+                </StyledRouterLink>
+              </li>
             ))}
           </NavlinksSubList>
           <StyledArrowIcon onClick={toggleVisibility}/>
