@@ -8,6 +8,8 @@ import Home from './components/routes/Home/Home'
 import Navigation from './components/routes/Navigation/Navigation'
 import Shop from './components/routes/Shop/Shop'
 import GlobalStyles from './GlobalStyles'
+import Category from './components/features/Categories/Category/Category'
+import NotFound from './components/common/NotFound/NotFound'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
       {
         path: 'shop',
         element: <Shop />
+      },
+      {
+        path: '/:category',
+        element: <Category />
+      },
+      {
+        path: '*',
+        element: <NotFound />
       }
     ]
   }
