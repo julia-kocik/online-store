@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts } from '../../../redux/productSlice'
 import { type AppDispatch, type RootState } from '../../../redux/store'
+import { ProductsContainer } from './CategoriesStyles'
+import Product from '../Product/Product'
 
 const Categories = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>()
@@ -28,11 +30,11 @@ const Categories = (): JSX.Element => {
         return (
         <div key={category}>
           <h2>{category}</h2>
-          <div>
+          <ProductsContainer>
             {productsPerCategory.map(item => (
-              <h3 key={item}>{item.title}</h3>
+              <Product key={item.id} {...item}/>
             ))}
-          </div>
+          </ProductsContainer>
         </div>
         )
       }
