@@ -4,3 +4,7 @@ export const colors = {
   lightgray: '#D3D3D3',
   darkgray: '#808080'
 }
+
+export const variables = {
+  boxShadow: '0px 0px 28px 0px rgba(184, 186, 204, 1)'
+}
