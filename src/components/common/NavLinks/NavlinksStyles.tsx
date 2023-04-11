@@ -1,6 +1,7 @@
 import { IoIosArrowDown } from 'react-icons/io'
 import styled from 'styled-components'
 import { colors } from '../../../colors'
+import { type HTMLAttributes } from 'react'
 
 export const NavlinksContainer = styled.div`
   flex: 0 0 45%;
@@ -21,10 +22,29 @@ export const NavlinksLinks = styled.li`
     text-decoration: none;
     display: flex;
     align-items: center;
+    position: relative;
+`
+
+interface NavlinksSubListProps extends HTMLAttributes<HTMLUListElement> {
+  visibility?: string
+}
+
+export const NavlinksSubList = styled.ul<NavlinksSubListProps>`
+  position: absolute;
+  list-style-type: none;
+  top: 1.5rem;
+  right: 0;
+  background: ${colors.green};
+  color: ${colors.white};
+  padding: 0.5rem 0.75rem;
+  width: 150%;
+  border-radius: 0.5rem;
+  transition: opacity 0.5s ease-in-out;
+  opacity: ${props => (props.visibility === 'visible' ? '1' : '0')};
 `
 
 export const StyledArrowIcon = styled(IoIosArrowDown)`
-  font-size: 24px;
-  margin-left: 10px;
+  font-size: 1rem;
+  margin-left: 0.5rem;
   cursor: pointer;
 `
