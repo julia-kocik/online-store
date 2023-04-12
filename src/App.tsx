@@ -10,6 +10,7 @@ import Shop from './components/routes/Shop/Shop'
 import GlobalStyles from './GlobalStyles'
 import Category from './components/features/Categories/Category/Category'
 import NotFound from './components/common/NotFound/NotFound'
+import ProductDetails from './components/features/ProductDetails/ProductDetails'
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/:category',
-        element: <Category />
+        children: [
+          {
+            index: true,
+            element: <Category />
+          },
+          {
+            path: ':id',
+            element: <ProductDetails />
+          }
+        ]
       },
       {
         path: '*',
