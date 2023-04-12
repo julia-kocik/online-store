@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { type AppDispatch, type RootState } from '../../../redux/store'
 import { fetchProducts } from '../../../redux/productSlice'
-import { ProductDetailsContainer, ProductDetailsLeftContainer } from './ProductDetailsStyles'
+import { ActiveImage, Overlay, ProductDetailsContainer, ProductDetailsLeftContainer, ProductDetailsTitle, ProductsDetailsBottomContainer, SmallImage } from './ProductDetailsStyles'
 
 interface Product {
   id: number
@@ -37,12 +37,13 @@ const ProductDetails = (): JSX.Element => {
   const status = useSelector((state: RootState) => state.products.status)
   const error = useSelector((state: RootState) => state.products.error)
   const [activeProduct, setActiveProduct] = useState<Product>(defaultProduct)
+  const [activeColor, setActiveColor] = useState('')
 
   useEffect(() => {
     dispatch(fetchProducts())
   }, [dispatch])
+
   useEffect(() => {
-    console.log(typeof id, category, products)
     const idNumber = parseInt(id ?? '')
     const productWithParamsId = products[category ?? '']?.find(item => item.id === idNumber)
     setActiveProduct(productWithParamsId)
@@ -55,15 +56,25 @@ const ProductDetails = (): JSX.Element => {
   if (status === 'failed') {
     return <div>Error: {error}</div>
   }
+  const colors = ['green', 'blue', 'orange', 'purple']
+
+  const onColorChange = (color: string): void => {
+    setActiveColor(color)
+  }
   return (
     <>
-        <div>{category} / {activeProduct?.title}</div>
+        <ProductDetailsTitle>{category} / {activeProduct?.title}</ProductDetailsTitle>
         <ProductDetailsContainer>
             <div>
                 <ProductDetailsLeftContainer>
-                <div style={{ border: '3px solid pink' }}></div>
-                <div style={{ border: '3px solid purple' }}></div>
-
+                        <ActiveImage url={activeProduct?.image} onClick={() => onColorChange('')}>
+                            <Overlay color={activeColor}/>
+                        </ActiveImage>
+                <ProductsDetailsBottomContainer>
+                  {colors.map(item => (
+                    <SmallImage onClick={() => onColorChange(item)} key={item} url={activeProduct?.image}><Overlay color={item}/></SmallImage>
+                  ))}
+                </ProductsDetailsBottomContainer>
                 </ProductDetailsLeftContainer>
             </div>
             <div style={{ border: '3px solid red' }}></div>

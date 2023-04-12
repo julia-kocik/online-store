@@ -15,8 +15,8 @@ export const ImageContainer = styled.div<ImageContainerProps>`
     height: 60%;
     border-radius: 0.5rem;
     background-image: url(${props => props.url});
-    background-size: 45%; /* ustawia tło na całkowite wypełnienie przestrzeni */
-    background-repeat: no-repeat; /* uniemożliwia tło w powtarzaniu */
+    background-size: 45%; 
+    background-repeat: no-repeat; 
     background-position: center;
 `
 
