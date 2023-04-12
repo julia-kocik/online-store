@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../../colors'
 import { BsFillCartCheckFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 export const LogoContainer = styled.div`
   background-color: ${colors.white};
@@ -21,4 +22,8 @@ export const LogoInnerContainer = styled.div`
 `
 export const StyledLogo = styled(BsFillCartCheckFill)`
   font-size: 48px;
+`
+export const StyledRouterLink = styled(Link)`
+  text-decoration: none;
+  color: ${colors.green};
 `

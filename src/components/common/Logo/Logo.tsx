@@ -1,11 +1,13 @@
 import React from 'react'
-import { LogoContainer, LogoInnerContainer, StyledLogo } from './LogoStyles'
+import { LogoContainer, LogoInnerContainer, StyledLogo, StyledRouterLink } from './LogoStyles'
 
 const Logo = (): JSX.Element => {
   return (
     <LogoContainer>
       <LogoInnerContainer>
-        <StyledLogo/>
+        <StyledRouterLink to="/">
+          <StyledLogo/>
+        </StyledRouterLink>
         <h2>HappyCart</h2>
       </LogoInnerContainer>
     </LogoContainer>
