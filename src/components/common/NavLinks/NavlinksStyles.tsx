@@ -42,6 +42,7 @@ export const NavlinksSubList = styled.ul<NavlinksSubListProps>`
   border-radius: 0.5rem;
   transition: opacity 0.5s ease-in-out;
   opacity: ${props => (props.visibility === 'visible' ? '1' : '0')};
+  z-index: 1;
 `
 
 export const StyledArrowIcon = styled(IoIosArrowDown)`

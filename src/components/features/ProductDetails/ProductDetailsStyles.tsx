@@ -10,8 +10,8 @@ export const ProductDetailsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 90vw;
-    height: 75vh;
-    margin: 1rem 0;
+    height: 70vh;
+    margin: 1rem 0 3rem 0;
 `
 export const ProductDetailsLeftContainer = styled.div`
     display: grid;
