@@ -2,6 +2,7 @@ import React from 'react'
 import { ButtonContainer, ContentContainer, ImageContainer, ProductContainer, RatingContainer, TitleContainer } from './ProductStyles'
 import Button from '../../common/Button/Button'
 import StarsProgress from '../../common/StarsProgress/StarsProgress'
+import { Link } from 'react-router-dom'
 
 interface ProductProps {
   id: number
@@ -20,7 +21,9 @@ const Product: React.FC<ProductProps> = ({ id, title, price, description, catego
   const shortTitle = title.split(' ')
   return (
     <ProductContainer>
-        <ImageContainer url={image}/>
+        <Link to={`/${category}/${id}`}>
+          <ImageContainer url={image}/>
+        </Link>
         <ContentContainer>
             <TitleContainer>
                 <h5>{`${shortTitle[0]} ${shortTitle[1]} ${shortTitle[2]}` }</h5>
