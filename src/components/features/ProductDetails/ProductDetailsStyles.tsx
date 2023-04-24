@@ -1,6 +1,6 @@
 import { type HTMLAttributes } from 'react'
 import styled from 'styled-components'
-import { variables } from '../../../colors'
+import { colors, variables } from '../../../colors'
 
 export const ProductDetailsTitle = styled.div`
     margin-top: 0.5rem;
@@ -54,4 +54,41 @@ export const SmallImage = styled.div<ImageProps>`
     margin-top: 0.5rem;
     box-shadow: ${variables.boxShadow};
     cursor: pointer;
+`
+export const ProductDetailsRightContainer = styled.div`
+    display: grid;
+    grid-template-rows: 50% 10% 10% 30%;
+    row-gap: 0.5rem;
+    padding: 0 2rem;
+    h5 {
+        font-size: 24px;
+        margin: 0;
+    }
+`
+
+export const ProductDetailsBox = styled.div`
+    border-bottom: 1px solid ${colors.lightgray};
+    display: grid;
+    h5 {
+        align-self: center;
+    }
+`
+export const ProductDetailsButtonBox = styled.div`
+    justify-self: end; 
+    margin-top: 1.5rem;
+`
+
+export const ProductDetailsCounterBox = styled(ProductDetailsBox)`
+    border-radius: 1rem;
+    background: ${colors.lightgray};
+    color: ${colors.darkgray};
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 7rem;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    div {
+        display: grid;
+        place-items: center;
+    }
 `

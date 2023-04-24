@@ -3,6 +3,7 @@ import { ButtonContainer, ContentContainer, ImageContainer, ProductContainer, Ra
 import Button from '../../common/Button/Button'
 import StarsProgress from '../../common/StarsProgress/StarsProgress'
 import { Link } from 'react-router-dom'
+import { colors } from '../../../colors'
 
 interface ProductProps {
   id: number
@@ -36,7 +37,7 @@ const Product: React.FC<ProductProps> = ({ id, title, price, description, catego
                 <span>({rating.count})</span>
             </RatingContainer>
             <ButtonContainer>
-                <Button title='Add To Cart'></Button>
+                <Button title='Add to Cart' borderColor={colors.black}></Button>
             </ButtonContainer>
         </ContentContainer>
     </ProductContainer>
