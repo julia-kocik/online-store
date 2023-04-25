@@ -99,7 +99,7 @@ const ProductDetails = (): JSX.Element => {
              <p>{activeProduct?.description}</p>
           </ProductDetailsBox>
           <ProductDetailsBox>
-            <h5>$ {activeProduct?.price}</h5>
+            <h5>$ {activeProduct?.price.toFixed(2)}</h5>
             </ProductDetailsBox>
           <ProductDetailsCounterBox>
             <div onClick={decreaseAmount}>-</div>
