@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ButtonContainer, ContentContainer, ImageContainer, ProductContainer, RatingContainer, TitleContainer } from './ProductStyles'
 import Button from '../../common/Button/Button'
 import StarsProgress from '../../common/StarsProgress/StarsProgress'
 import { Link } from 'react-router-dom'
 import { colors } from '../../../colors'
+import { type AppDispatch, type RootState } from '../../../redux/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { cartSlice } from '../../../redux/cartSlice'
+
+const { addToCart } = cartSlice.actions
 
 interface ProductProps {
   id: number
@@ -18,8 +23,24 @@ interface ProductProps {
   }
 }
 
-const Product: React.FC<ProductProps> = ({ id, title, price, description, category, image, rating }): JSX.Element => {
+interface CartItemProps {
+  id: number
+  title: string
+  price: number
+  image: string
+  amount: number
+  color: string
+}
+
+const Product: React.FC<ProductProps> = ({ id, title, price, category, image, rating }): JSX.Element => {
+  const cartItem: CartItemProps = { id, title, price, image, amount: 1, color: 'white' }
   const shortTitle = title.split(' ')
+  const dispatch = useDispatch<AppDispatch>()
+  const cart = useSelector((state: RootState) => state.cartState.cart)
+  useEffect(() => {
+    console.log(cart)
+  }, [cart])
+
   return (
     <ProductContainer>
         <Link to={`/${category}/${id}`}>
@@ -37,7 +58,9 @@ const Product: React.FC<ProductProps> = ({ id, title, price, description, catego
                 <span>({rating.count})</span>
             </RatingContainer>
             <ButtonContainer>
-                <Button title='Add to Cart' borderColor={colors.black}></Button>
+                <Button title='Add to Cart' borderColor={colors.black} onClickHandler={() => {
+                  dispatch(addToCart(cartItem))
+                }}></Button>
             </ButtonContainer>
         </ContentContainer>
     </ProductContainer>
