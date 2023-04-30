@@ -8,7 +8,7 @@ export const CartPreviewContainer = styled.div`
 `
 export const CartPreviewItem = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 2fr;
     grid-gap: 10px; 
     font-size: 1rem;
     place-items: center;

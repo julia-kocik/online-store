@@ -21,11 +21,15 @@ const CartPreviewItems = (): JSX.Element => {
                 <CartPreviewAmount>
                     <div onClick={() => {
                       dispatch(increaseItemQuantity(cartPreviewItem.id))
-                    }}><IoIosArrowUp/></div>
+                    }}>
+                      <IoIosArrowUp/>
+                    </div>
                     <div>{cartPreviewItem.amount}</div>
                     <div onClick={() => {
                       dispatch(decreaseItemQuantity(cartPreviewItem.id))
-                    }}><IoIosArrowDown/></div>
+                    }}>
+                      <IoIosArrowDown/>
+                    </div>
                 </CartPreviewAmount>
                 <p>${calculateTotalPrice(cartPreviewItem.price, cartPreviewItem.amount)}</p>
             </CartPreviewItem>
