@@ -24,7 +24,7 @@ const CartIcon = (): JSX.Element => {
         <CartStyledIcon/>
       </CartCounterWrapper>
       <CartPreview>
-          <CartPreviewItems/>
+        <CartPreviewItems/>
       </CartPreview>
       </CartContainer>
   )

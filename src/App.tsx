@@ -6,11 +6,11 @@ import {
 import Topbar from './components/features/TopBar/Topbar'
 import Home from './components/routes/Home/Home'
 import Navigation from './components/routes/Navigation/Navigation'
-import Shop from './components/routes/Shop/Shop'
 import GlobalStyles from './GlobalStyles'
 import Category from './components/features/Categories/Category/Category'
 import NotFound from './components/common/NotFound/NotFound'
 import ProductDetails from './components/features/ProductDetails/ProductDetails'
+import CartScreen from './components/features/CartScreen/CartScreen'
 
 const router = createBrowserRouter([
   {
@@ -22,8 +22,8 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: 'shop',
-        element: <Shop />
+        path: 'cart',
+        element: <CartScreen />
       },
       {
         path: '/:category',

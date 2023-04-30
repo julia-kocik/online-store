@@ -1,6 +1,6 @@
 import React from 'react'
 import { type AppDispatch, type RootState } from '../../../redux/store'
-import { CartPreviewAmount, CartPreviewContainer, CartPreviewImage, CartPreviewItem } from './CartPreviewItemsStyles'
+import { CartLink, CartPreviewAmount, CartPreviewContainer, CartPreviewImage, CartPreviewItem } from './CartPreviewItemsStyles'
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartSlice } from '../../../redux/cartSlice'
@@ -30,6 +30,7 @@ const CartPreviewItems = (): JSX.Element => {
                 <p>${calculateTotalPrice(cartPreviewItem.price, cartPreviewItem.amount)}</p>
             </CartPreviewItem>
         ))}
+        {cartSample.length > 0 && <CartLink to='/cart'><span>{cart.length > 3 ? 'Show all items' : 'Go to cart' }</span></CartLink>}
     </CartPreviewContainer>
   )
 }

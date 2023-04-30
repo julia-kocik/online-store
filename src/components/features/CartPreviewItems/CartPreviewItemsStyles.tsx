@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../../colors'
+import { Link } from 'react-router-dom'
 
 export const CartPreviewContainer = styled.div`
     height: 100%;
@@ -30,4 +31,18 @@ export const CartPreviewAmount = styled.p`
         display: grid;
         place-items: center;
     }
+`
+
+export const CartLink = styled(Link)`
+    text-decoration: none;
+    color: ${colors.white};
+    background: ${colors.green};
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 0.5rem; 
+    padding: 0.25rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 `
