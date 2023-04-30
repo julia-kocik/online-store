@@ -6,6 +6,9 @@ import { fetchProducts } from '../../../redux/productSlice'
 import { ActiveImage, Overlay, ProductDetailsBox, ProductDetailsButtonBox, ProductDetailsContainer, ProductDetailsCounterBox, ProductDetailsLeftContainer, ProductDetailsRightContainer, ProductDetailsTitle, ProductsDetailsBottomContainer, SmallImage } from './ProductDetailsStyles'
 import Button from '../../common/Button/Button'
 import { colors } from '../../../colors'
+import { cartSlice } from '../../../redux/cartSlice'
+
+const { addToCart } = cartSlice.actions
 
 interface Product {
   id: number
@@ -32,6 +35,16 @@ const defaultProduct: Product = {
     count: 0
   }
 }
+
+interface CartItemProps {
+  id: number
+  title: string
+  price: number
+  image: string
+  amount: number
+  color: string
+}
+
 const ProductDetails = (): JSX.Element => {
   const { id, category } = useParams()
   const dispatch = useDispatch<AppDispatch>()
@@ -40,7 +53,7 @@ const ProductDetails = (): JSX.Element => {
   const error = useSelector((state: RootState) => state.products.error)
   const [activeProduct, setActiveProduct] = useState<Product>(defaultProduct)
   const [activeColor, setActiveColor] = useState('')
-  const [amount, setAmount] = useState(0)
+  const [amount, setAmount] = useState(1)
   useEffect(() => {
     dispatch(fetchProducts())
   }, [dispatch])
@@ -65,7 +78,7 @@ const ProductDetails = (): JSX.Element => {
   }
 
   const increaseAmount = (): void => {
-    if (amount < 10) {
+    if (amount < 50) {
       setAmount(amount => amount + 1)
     } else {
       alert('If you are interested in wholesale purchase, please contact support')
@@ -73,12 +86,13 @@ const ProductDetails = (): JSX.Element => {
   }
 
   const decreaseAmount = (): void => {
-    if (amount > 0) {
+    if (amount > 1) {
       setAmount(amount => amount - 1)
     } else {
-      alert('The amount cannot be smaller than 0')
+      alert('The amount cannot be smaller than 1')
     }
   }
+  const cartItem: CartItemProps = { id: activeProduct?.id, title: activeProduct?.title, price: activeProduct?.price, image: activeProduct?.image, amount, color: activeColor }
   return (
     <>
         <ProductDetailsTitle>{category} / {activeProduct?.title}</ProductDetailsTitle>
@@ -107,7 +121,9 @@ const ProductDetails = (): JSX.Element => {
             <div onClick={increaseAmount}>+</div>
           </ProductDetailsCounterBox>
           <ProductDetailsButtonBox>
-            <Button title='Add to Cart' color={colors.white} background={colors.green}></Button>
+            <Button title='Add to Cart' color={colors.white} background={colors.green} onClickHandler={() => {
+              dispatch(addToCart(cartItem))
+            }}></Button>
           </ProductDetailsButtonBox>
         </ProductDetailsRightContainer>
         </ProductDetailsContainer>
