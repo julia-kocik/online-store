@@ -14,14 +14,14 @@ export const CartContainer = styled.div`
 export const CartCounter = styled.span`
     position: absolute;
     bottom: 2rem;
-    font-size: 1rem;
+    font-size: 0.75rem;
     right: 1.75rem;
     color: ${colors.white};
     background: ${colors.green};
     border-radius: 50%;
-    height: 1.25rem;
-    width: 1.25rem;
+    height: 1rem;
+    width: 1rem;
     text-align: center;
-    line-height: 1.25rem;
+    line-height: 1rem;
 
 `
