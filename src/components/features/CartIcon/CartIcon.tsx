@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { CartContainer, CartCounter, CartCounterWrapper, CartPreview, CartStyledIcon } from './CartIconStyles'
 import { useSelector } from 'react-redux'
 import { type RootState } from '../../../redux/store'
+import CartPreviewItems from '../CartPreviewItems/CartPreviewItems'
 
 const CartIcon = (): JSX.Element => {
   const cart = useSelector((state: RootState) => state.cartState.cart)
@@ -22,7 +23,9 @@ const CartIcon = (): JSX.Element => {
         <CartCounter>{totalCartAmount}</CartCounter>
         <CartStyledIcon/>
       </CartCounterWrapper>
-      <CartPreview/>
+      <CartPreview>
+          <CartPreviewItems/>
+      </CartPreview>
       </CartContainer>
   )
 }

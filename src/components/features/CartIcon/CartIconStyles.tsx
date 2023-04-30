@@ -4,7 +4,7 @@ import { BsFillCartCheckFill } from 'react-icons/bs'
 
 export const CartPreview = styled.div`
     visibility: hidden;
-    min-height: 200px;
+    height: auto;
     width: 300px;
     position: absolute;
     top: 80px;
@@ -29,7 +29,6 @@ export const CartContainer = styled.div`
 
 export const CartCounterWrapper = styled.div`
     position: relative;
- 
 `
 
 export const CartCounter = styled.span`

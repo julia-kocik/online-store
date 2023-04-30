@@ -39,9 +39,20 @@ export const cartSlice = createSlice({
       state.cart = []
     },
     increaseItemQuantity: (state, action) => {
-      const item = action.payload
-      const existingItemIndex = state.cart.findIndex(cartItem => cartItem.id === item.id)
-      state.cart[existingItemIndex].amount += 1
+      const id = action.payload
+      const existingItemIndex = state.cart.findIndex(cartItem => cartItem.id === id)
+      if (existingItemIndex !== -1) {
+        state.cart[existingItemIndex].amount += 1
+      }
+    },
+    decreaseItemQuantity: (state, action) => {
+      const id = action.payload
+      const existingItemIndex = state.cart.findIndex(cartItem => cartItem.id === id)
+      if (existingItemIndex !== -1 && state.cart[existingItemIndex].amount > 1) {
+        state.cart[existingItemIndex].amount -= 1
+      } else {
+        state.cart = state.cart.filter(cartItem => cartItem.id !== id)
+      }
     }
   }
 
