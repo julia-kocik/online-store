@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BsFillCartCheckFill } from 'react-icons/bs'
-import { CartContainer, CartCounter } from './CartIconStyles'
+import { CartContainer, CartCounter, CartCounterWrapper, CartPreview, CartStyledIcon } from './CartIconStyles'
 import { useSelector } from 'react-redux'
 import { type RootState } from '../../../redux/store'
 
@@ -19,9 +18,12 @@ const CartIcon = (): JSX.Element => {
 
   return (
     <CartContainer>
-      <CartCounter>{totalCartAmount}</CartCounter>
-      <BsFillCartCheckFill/>
-    </CartContainer>
+      <CartCounterWrapper>
+        <CartCounter>{totalCartAmount}</CartCounter>
+        <CartStyledIcon/>
+      </CartCounterWrapper>
+      <CartPreview/>
+      </CartContainer>
   )
 }
 

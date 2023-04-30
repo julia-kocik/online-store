@@ -12,7 +12,7 @@ export const SearchbarContainer = styled.div`
 `
 
 export const StyledSearchInput = styled.input`
-  border-radius: 20px;
+  border-radius: 1rem;
   border-color: transparent;
   outline: none;
   font-size: 18px;
