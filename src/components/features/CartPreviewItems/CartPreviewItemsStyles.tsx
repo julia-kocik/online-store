@@ -9,7 +9,7 @@ export const CartPreviewContainer = styled.div`
 export const CartPreviewItem = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
-    grid-gap: 10px; 
+    grid-gap: 0.5rem; 
     font-size: 1rem;
     place-items: center;
     border-top: 1px solid ${colors.lightgray};
@@ -40,7 +40,7 @@ export const CartLink = styled(Link)`
     width: 100%;
     display: inline-block;
     text-align: center;
-    font-size: 20px;
+    font-size: 1rem;
     border-radius: 0.5rem; 
     padding: 0.25rem;
     border-top-left-radius: 0;
