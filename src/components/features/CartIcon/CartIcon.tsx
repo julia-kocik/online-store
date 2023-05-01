@@ -20,7 +20,7 @@ const CartIcon = (): JSX.Element => {
   return (
     <CartContainer>
       <CartCounterWrapper>
-        <CartCounter>{totalCartAmount}</CartCounter>
+        {cart.length > 0 && <CartCounter>{totalCartAmount}</CartCounter>}
         <CartStyledIcon/>
       </CartCounterWrapper>
       <CartPreview>

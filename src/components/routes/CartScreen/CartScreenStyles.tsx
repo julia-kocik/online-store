@@ -1,14 +1,13 @@
 import styled from 'styled-components'
-import { colors, variables } from '../../../colors'
+import { variables } from '../../../colors'
 import { SlTrash } from 'react-icons/sl'
 import { Link } from 'react-router-dom'
 
 export const CartScreenContainer = styled.div`
-    min-height: 92vh;
+    min-height: 80vh;
 `
 
 export const CartScreenInnerContainer = styled.div`
-    border-top: 1px solid ${colors.lightgray};
     display: grid;
     grid-auto-rows: 120px;
     gap: 0.75rem;
@@ -51,5 +50,5 @@ export const ButtonContainer = styled(Link)`
     display: grid;
     justify-items: end;
     width: 70%;
-    margin: 0 auto;
+    margin: 0 auto 3rem auto;
 `

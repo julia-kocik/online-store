@@ -6,11 +6,17 @@ import { cartSlice } from '../../../redux/cartSlice'
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 import Button from '../../common/Button/Button'
 import { colors } from '../../../colors'
+import { StyledLink } from '../../../GlobalStyles'
 const { increaseItemQuantity, decreaseItemQuantity, removeFromCart } = cartSlice.actions
 
 const CartScreen = (): JSX.Element => {
   const cart = useSelector((state: RootState) => state.cartState.cart)
   const dispatch = useDispatch<AppDispatch>()
+  if (cart.length === 0) {
+    return <h3>
+      <StyledLink to='/'>Your cart is empty, please return to homepage</StyledLink>
+    </h3>
+  }
   return (
     <CartScreenContainer>
       <CartScreenInnerContainer>
@@ -36,9 +42,11 @@ const CartScreen = (): JSX.Element => {
           </CartScreenItemContainer>
         ))}
       </CartScreenInnerContainer>
-      <ButtonContainer to='/checkout'>
-        <Button title='Proceed to chekout' color={colors.white} background={colors.green}/>
-      </ButtonContainer>
+      {cart.length > 0 && (
+        <ButtonContainer to='/checkout'>
+          <Button title='Proceed to chekout' color={colors.white} background={colors.green}/>
+        </ButtonContainer>
+      )}
     </CartScreenContainer>
   )
 }
