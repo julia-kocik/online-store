@@ -10,7 +10,7 @@ import GlobalStyles from './GlobalStyles'
 import Category from './components/features/Categories/Category/Category'
 import NotFound from './components/common/NotFound/NotFound'
 import ProductDetails from './components/features/ProductDetails/ProductDetails'
-import CartScreen from './components/features/CartScreen/CartScreen'
+import CartScreen from './components/routes/CartScreen/CartScreen'
 
 const router = createBrowserRouter([
   {
