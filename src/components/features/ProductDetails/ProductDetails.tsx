@@ -7,6 +7,7 @@ import { ActiveImage, Overlay, ProductDetailsBox, ProductDetailsButtonBox, Produ
 import Button from '../../common/Button/Button'
 import { colors } from '../../../colors'
 import { cartSlice } from '../../../redux/cartSlice'
+import { StyledLink } from '../../../GlobalStyles'
 
 const { addToCart } = cartSlice.actions
 
@@ -93,6 +94,11 @@ const ProductDetails = (): JSX.Element => {
     }
   }
   const cartItem: CartItemProps = { id: activeProduct?.id, title: activeProduct?.title, price: activeProduct?.price, image: activeProduct?.image, amount, color: activeColor }
+  if (!activeProduct) {
+    return <h3>
+      <StyledLink to='/'>There is no product with these params, check your link or go back to homepage.</StyledLink>
+    </h3>
+  }
   return (
     <>
         <ProductDetailsTitle>{category} / {activeProduct?.title}</ProductDetailsTitle>
@@ -121,7 +127,7 @@ const ProductDetails = (): JSX.Element => {
             <div onClick={increaseAmount}>+</div>
           </ProductDetailsCounterBox>
           <ProductDetailsButtonBox>
-            <Button title='Add to Cart' color={colors.white} background={colors.green} onClickHandler={() => {
+            <Button title='Add to Cart' color={colors.white} height='2.5rem' background={colors.green} onClickHandler={() => {
               dispatch(addToCart(cartItem))
             }}></Button>
           </ProductDetailsButtonBox>

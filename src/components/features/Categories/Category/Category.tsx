@@ -5,6 +5,7 @@ import { type AppDispatch, type RootState } from '../../../../redux/store'
 import { fetchProducts } from '../../../../redux/productSlice'
 import Product from '../../Product/Product'
 import { ProductsContainer } from '../CategoriesStyles'
+import { StyledLink } from '../../../../GlobalStyles'
 
 const Category = (): JSX.Element => {
   const { category } = useParams()
@@ -25,6 +26,12 @@ const Category = (): JSX.Element => {
     return <div>Error: {error}</div>
   }
   const arrayOfProducts = products[category ?? '']
+  if (!arrayOfProducts) {
+    return <h3>
+      <StyledLink to='/'>There is no product with these params, check your link or go back to homepage.</StyledLink>
+    </h3>
+  }
+
   return (
     <div>
       <h3>{category}</h3>

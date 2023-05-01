@@ -11,7 +11,7 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 
 export const ButtonStyles = styled.button<ButtonProps>`
     border: ${props => `2px solid ${props.borderColor ?? 'transparent'}`};
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     background: ${props => props.background ? props.background : 'transparent'};
     color: ${props => props.color ? props.color : 'black'};
     padding: 0.5rem 1rem;
