@@ -6,12 +6,14 @@ interface ButtonProps {
   color?: string
   background?: string
   borderColor?: string
+  height?: string
+  fontSize?: string
   onClickHandler?: () => void
 }
 
-const Button: React.FC<ButtonProps> = ({ title, color, background, borderColor, onClickHandler }): JSX.Element => {
+const Button: React.FC<ButtonProps> = ({ title, color, background, borderColor, fontSize, height, onClickHandler }): JSX.Element => {
   return (
-    <ButtonStyles onClick={onClickHandler} color={color} background={background} borderColor={borderColor}>{title}</ButtonStyles>
+    <ButtonStyles onClick={onClickHandler} height={height} fontSize={fontSize} color={color} background={background} borderColor={borderColor}>{title}</ButtonStyles>
   )
 }
 

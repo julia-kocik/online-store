@@ -5,6 +5,8 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   color?: string
   background?: string
   borderColor?: string
+  height?: string
+  fontSize?: string
 }
 
 export const ButtonStyles = styled.button<ButtonProps>`
@@ -16,4 +18,6 @@ export const ButtonStyles = styled.button<ButtonProps>`
     height: 2rem;
     font-size: 0.75rem;
     cursor: pointer;
+    font-size: ${props => props.fontSize ? props.fontSize : ''};
+    height: ${props => props.height ? props.height : ''};
 `

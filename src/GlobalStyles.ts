@@ -10,9 +10,11 @@ export const StyledLink = styled(Link)`
 // Define global styles
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Mulish&family=Roboto:wght@100&display=swap');
+  html {
+    font-size: 20px;
+  }
 
   body {
-    font-size: 18px;
     font-family: 'Mulish', sans-serif;
     margin: 0 4rem;
   }

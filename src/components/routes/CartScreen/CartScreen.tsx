@@ -44,7 +44,7 @@ const CartScreen = (): JSX.Element => {
       </CartScreenInnerContainer>
       {cart.length > 0 && (
         <ButtonContainer to='/checkout'>
-          <Button title='Proceed to chekout' color={colors.white} background={colors.green}/>
+          <Button title='Proceed to checkout' color={colors.white} background={colors.green} fontSize='1rem' height='3rem'/>
         </ButtonContainer>
       )}
     </CartScreenContainer>
