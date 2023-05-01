@@ -19,7 +19,7 @@ export const CartPreviewItem = styled.div`
 `
 export const CartPreviewImage = styled.img`
     width: 100%;
-    height: 100%;
+    height: 80%;
     padding: 0.5rem;
 `
 
