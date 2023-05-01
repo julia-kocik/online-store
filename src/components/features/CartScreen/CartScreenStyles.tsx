@@ -4,9 +4,8 @@ import { SlTrash } from 'react-icons/sl'
 
 export const CartScreenContainer = styled.div`
     border-top: 1px solid ${colors.lightgray};
-    min-height: 80vh;
     display: grid;
-    grid-template-rows: auto;
+    grid-auto-rows: 120px;
     gap: 0.75rem;
     width: 70%;
     margin: 2rem auto;
@@ -30,4 +29,15 @@ export const CartScreenImage = styled.img`
 
 export const CartRemoveIcon = styled(SlTrash)`
     cursor: pointer;
+`
+
+export const CartPreviewAmount = styled.p`
+    cursor: pointer;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0.5rem;
+    div {
+        display: grid;
+        place-items: center;
+    }
 `
