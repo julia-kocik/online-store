@@ -55,6 +55,7 @@ const ProductDetails = (): JSX.Element => {
   const [activeProduct, setActiveProduct] = useState<Product>(defaultProduct)
   const [activeColor, setActiveColor] = useState('')
   const [amount, setAmount] = useState(1)
+  const [isLoading, setIsLoading] = useState(false)
   useEffect(() => {
     dispatch(fetchProducts())
   }, [dispatch])
@@ -93,6 +94,16 @@ const ProductDetails = (): JSX.Element => {
       alert('The amount cannot be smaller than 1')
     }
   }
+  const handleAction = (action, payload): void => {
+    setIsLoading(true)
+    try {
+      dispatch(action(payload))
+      setIsLoading(false)
+    } catch (error) {
+      console.log('Error updating cart:', error)
+    }
+  }
+
   const cartItem: CartItemProps = { id: activeProduct?.id, title: activeProduct?.title, price: activeProduct?.price, image: activeProduct?.image, amount, color: activeColor }
   if (!activeProduct) {
     return <h3>
@@ -127,9 +138,14 @@ const ProductDetails = (): JSX.Element => {
             <div onClick={increaseAmount}>+</div>
           </ProductDetailsCounterBox>
           <ProductDetailsButtonBox>
-            <Button title='Add to Cart' color={colors.white} height='2.5rem' background={colors.green} onClickHandler={() => {
-              dispatch(addToCart(cartItem))
-            }}></Button>
+          <Button
+            title='Add to Cart'
+            color={colors.white}
+            height='2.5rem'
+            background={colors.green}
+            disabled={isLoading}
+            onClickHandler={() => handleAction(addToCart, cartItem)}
+          ></Button>
           </ProductDetailsButtonBox>
         </ProductDetailsRightContainer>
         </ProductDetailsContainer>

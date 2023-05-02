@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ButtonContainer, ContentContainer, ImageContainer, ProductContainer, RatingContainer, TitleContainer } from './ProductStyles'
 import Button from '../../common/Button/Button'
 import StarsProgress from '../../common/StarsProgress/StarsProgress'
@@ -37,6 +37,18 @@ const Product: React.FC<ProductProps> = ({ id, title, price, category, image, ra
   const shortTitle = title.split(' ')
   const dispatch = useDispatch<AppDispatch>()
   const cart = useSelector((state: RootState) => state.cartState.cart)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleAction = (action, payload): void => {
+    setIsLoading(true)
+    try {
+      dispatch(action(payload))
+      setIsLoading(false)
+    } catch (error) {
+      console.log('Error updating cart:', error)
+    }
+  }
+
   useEffect(() => {
     console.log(cart)
   }, [cart])
@@ -58,8 +70,8 @@ const Product: React.FC<ProductProps> = ({ id, title, price, category, image, ra
                 <span>({rating.count})</span>
             </RatingContainer>
             <ButtonContainer>
-                <Button title='Add to Cart' borderColor={colors.black} onClickHandler={() => {
-                  dispatch(addToCart(cartItem))
+                <Button disabled={isLoading} title='Add to Cart' borderColor={colors.black} onClickHandler={() => {
+                  handleAction(addToCart, cartItem)
                 }}></Button>
             </ButtonContainer>
         </ContentContainer>

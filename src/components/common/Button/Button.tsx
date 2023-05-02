@@ -8,6 +8,7 @@ interface ButtonProps {
   borderColor?: string
   height?: string
   fontSize?: string
+  disabled?: boolean
   onClickHandler?: () => void
 }
 
