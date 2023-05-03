@@ -12,7 +12,10 @@ const Checkout = (): JSX.Element => {
     <CheckoutContainer>
       <CheckoutInnerContainer>
           <CheckoutLeftContainer>
-            <CheckoutTotalPrice></CheckoutTotalPrice>
+            <CheckoutTotalPrice>
+              <h3>Review Order and Shipping</h3>
+              <h5>Total Price: $500</h5>
+            </CheckoutTotalPrice>
             <CheckoutPersonalDetails></CheckoutPersonalDetails>
           </CheckoutLeftContainer>
           <CheckoutSummaryContainer></CheckoutSummaryContainer>
