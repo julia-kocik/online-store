@@ -51,7 +51,7 @@ const CartScreen = (): JSX.Element => {
                         <IoIosArrowDown/>
                       </div>
                   </CartPreviewAmount>
-              <div>${cartItem.price.toFixed(2)}</div>
+              <div>${(cartItem.price * cartItem.amount).toFixed(2)}</div>
              <CartRemoveIcon onClick={() => {
                if (!isLoading) {
                  handleAction(removeFromCart, cartItem.id)
