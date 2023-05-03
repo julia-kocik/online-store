@@ -7,7 +7,7 @@ export const CheckoutContainer = styled.div`
 `
 
 export const CheckoutInnerContainer = styled.div`
-    min-height: 60vh;
+    min-height: 62vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1rem;
@@ -24,6 +24,10 @@ export const CheckoutTotalPrice = styled.div`
     box-shadow: ${variables.boxShadow};
     padding: 1rem 2rem;
     color: ${colors.green};
+`
+export const CheckoutTotalPriceInner = styled.div`
+    display: flex;
+    justify-content: space-between;
 `
 
 export const CheckoutPersonalDetails = styled.div`
@@ -42,4 +46,10 @@ export const ButtonContainer = styled.div`
     align-items: center;
     height: 130px;
     width: 90%;
+`
+
+export const ReturnContainer = styled.div`
+    display: grid;
+    justify-items: end;
+    
 `
