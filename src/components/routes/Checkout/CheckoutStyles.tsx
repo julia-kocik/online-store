@@ -3,6 +3,7 @@ import { colors, variables } from '../../../colors'
 
 export const CheckoutContainer = styled.div`
     min-height: 80vh;
+    padding-top: 2rem;
 `
 
 export const CheckoutInnerContainer = styled.div`
@@ -10,6 +11,8 @@ export const CheckoutInnerContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1rem;
+    width: 80%;
+    margin: 0 auto;
 `
 export const CheckoutLeftContainer = styled.div`
     display: grid;
@@ -19,16 +22,16 @@ export const CheckoutLeftContainer = styled.div`
 export const CheckoutTotalPrice = styled.div`
     border-radius: 0.5rem;
     box-shadow: ${variables.boxShadow};
+    padding: 1rem 2rem;
+    color: ${colors.green};
 `
 
 export const CheckoutPersonalDetails = styled.div`
-    border: 3px solid ${colors.lightgray};
     border-radius: 0.5rem;
     box-shadow: ${variables.boxShadow};
 `
 
 export const CheckoutSummaryContainer = styled.div`
-    border: 3px solid ${colors.lightgray};
     border-radius: 0.5rem;
     box-shadow: ${variables.boxShadow};
 `
@@ -37,5 +40,6 @@ export const ButtonContainer = styled.div`
     display: grid;
     justify-items: end;
     align-items: center;
-    height: 150px;
+    height: 130px;
+    width: 90%;
 `
