@@ -30,6 +30,7 @@ export const CartPreviewAmount = styled.p`
     div {
         display: grid;
         place-items: center;
+        padding: 0.25rem 0;
     }
 `
 
