@@ -31,17 +31,21 @@ export const CartCounterWrapper = styled.div`
     position: relative;
 `
 
-export const CartCounter = styled.span`
+interface CartCounterProps {
+  length: number
+}
+
+export const CartCounter = styled.span<CartCounterProps>`
     left: 1.25rem;
     bottom: 1.5rem;
     font-size: 0.75rem;
     color: ${colors.white};
     background: ${colors.green};
     border-radius: 50%;
-    height: 1rem;
-    width: 1rem;
+    height: ${props => props.length > 99 ? '1.4rem' : props.length > 9 ? '1.25rem' : '1rem'};
+    width: ${props => props.length > 99 ? '1.4rem' : props.length > 9 ? '1.25rem' : '1rem'};
     text-align: center;
-    line-height: 1rem;
+    line-height: ${props => props.length > 99 ? '1.4rem' : props.length > 9 ? '1.25rem' : '1rem'};
     position: absolute;
 `
 

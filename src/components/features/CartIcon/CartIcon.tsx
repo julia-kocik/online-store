@@ -16,11 +16,11 @@ const CartIcon = (): JSX.Element => {
   useEffect(() => {
     calculateTotalCartItemsAmount()
   }, [cart])
-
+  console.log(cart.length)
   return (
     <CartContainer>
       <CartCounterWrapper>
-        {cart.length > 0 && <CartCounter>{totalCartAmount}</CartCounter>}
+        {cart.length > 0 && <CartCounter length={totalCartAmount}>{totalCartAmount}</CartCounter>}
         <CartStyledIcon/>
       </CartCounterWrapper>
       <CartPreview>
