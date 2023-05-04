@@ -9,7 +9,7 @@ interface ButtonProps {
   height?: string
   fontSize?: string
   disabled?: boolean
-  onClickHandler?: () => void
+  onClickHandler?: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const Button: React.FC<ButtonProps> = ({ title, color, background, borderColor, fontSize, height, onClickHandler }): JSX.Element => {
