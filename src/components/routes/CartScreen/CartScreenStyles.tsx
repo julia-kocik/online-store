@@ -51,4 +51,5 @@ export const ButtonContainer = styled(Link)`
     justify-items: end;
     width: 70%;
     margin: 0 auto 3rem auto;
+    text-decoration: none;
 `

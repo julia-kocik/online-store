@@ -6,10 +6,29 @@ import { useSelector } from 'react-redux'
 import { type RootState } from '../../../redux/store'
 import { StyledLink } from '../../../GlobalStyles'
 import { BsArrowReturnLeft } from 'react-icons/bs'
+import DeliveryForm from '../../features/DeliveryForm/DeliveryForm'
+
+interface initialStateInt {
+  name: string
+  address: string
+  city: string
+  zipcode: string
+  mobile: string
+  email: string
+}
+
+const initialState: initialStateInt = {
+  name: '',
+  address: '',
+  city: '',
+  zipcode: '',
+  mobile: '',
+  email: ''
+}
 
 const Checkout = (): JSX.Element => {
   const cart = useSelector((state: RootState) => state.cartState.cart)
-  // const [isLoading, setIsLoading] = useState(false)
+  const [formState, setFormstate] = useState(initialState)
   const [totalPrice, setTotalPrice] = useState('')
   const calculateTotalPrice = (): string => {
     return cart.map(cartItem => {
@@ -21,6 +40,17 @@ const Checkout = (): JSX.Element => {
     setTotalPrice(totalPrice)
   }, [])
 
+  const onChangeHandler = (e): void => {
+    setFormstate(formState => {
+      return { ...formState, [e.target.name]: e.target.value }
+    })
+  }
+
+  const onSubmitHandler = (e): void => {
+    e.preventDefault()
+    console.log(formState)
+  }
+
   return (
     <CheckoutContainer>
       <CheckoutInnerContainer>
@@ -28,20 +58,23 @@ const Checkout = (): JSX.Element => {
             <CheckoutTotalPrice>
               <h3>Review Order and Shipping</h3>
               <CheckoutTotalPriceInner>
-                <h4>Total price</h4>
+                <h4>Total price:</h4>
                 <h4>$ {totalPrice}</h4>
               </CheckoutTotalPriceInner>
               <ReturnContainer>
                 <StyledLink to='/cart'><BsArrowReturnLeft/></StyledLink>
               </ReturnContainer>
             </CheckoutTotalPrice>
-            <CheckoutPersonalDetails></CheckoutPersonalDetails>
+            <CheckoutPersonalDetails>
+              <h3>Delivery Information</h3>
+              <DeliveryForm onChangeHandler={onChangeHandler}/>
+            </CheckoutPersonalDetails>
           </CheckoutLeftContainer>
           <CheckoutSummaryContainer></CheckoutSummaryContainer>
       </CheckoutInnerContainer>
       {cart.length > 0 && (
         <ButtonContainer>
-          <Button title='Process payment' color={colors.white} background={colors.green} fontSize='1rem' height='3rem'/>
+          <Button onClickHandler={onSubmitHandler} title='Process payment' color={colors.white} background={colors.green} fontSize='1rem' height='3rem'/>
         </ButtonContainer>
       )}
     </CheckoutContainer>

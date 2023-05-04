@@ -16,7 +16,7 @@ export const CheckoutInnerContainer = styled.div`
 `
 export const CheckoutLeftContainer = styled.div`
     display: grid;
-    grid-template-rows: 50%;
+    grid-template-rows: 1fr 2fr;
     row-gap: 1rem;
 `
 export const CheckoutTotalPrice = styled.div`
@@ -33,6 +33,8 @@ export const CheckoutTotalPriceInner = styled.div`
 export const CheckoutPersonalDetails = styled.div`
     border-radius: 0.5rem;
     box-shadow: ${variables.boxShadow};
+    padding: 1rem 2rem;
+    color: ${colors.green};
 `
 
 export const CheckoutSummaryContainer = styled.div`
