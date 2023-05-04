@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { ButtonContainer, ContentContainer, ImageContainer, ProductContainer, RatingContainer, TitleContainer } from './ProductStyles'
 import Button from '../../common/Button/Button'
 import StarsProgress from '../../common/StarsProgress/StarsProgress'
 import { Link } from 'react-router-dom'
 import { colors } from '../../../colors'
-import { type AppDispatch, type RootState } from '../../../redux/store'
-import { useDispatch, useSelector } from 'react-redux'
+import { type AppDispatch } from '../../../redux/store'
+import { useDispatch } from 'react-redux'
 import { cartSlice } from '../../../redux/cartSlice'
 
 const { addToCart } = cartSlice.actions
@@ -36,22 +36,6 @@ const Product: React.FC<ProductProps> = ({ id, title, price, category, image, ra
   const cartItem: CartItemProps = { id, title, price, image, amount: 1, color: 'white' }
   const shortTitle = title.split(' ')
   const dispatch = useDispatch<AppDispatch>()
-  const cart = useSelector((state: RootState) => state.cartState.cart)
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleAction = (action, payload): void => {
-    setIsLoading(true)
-    try {
-      dispatch(action(payload))
-      setIsLoading(false)
-    } catch (error) {
-      console.log('Error updating cart:', error)
-    }
-  }
-
-  useEffect(() => {
-    console.log(cart)
-  }, [cart])
 
   return (
     <ProductContainer>
@@ -70,8 +54,8 @@ const Product: React.FC<ProductProps> = ({ id, title, price, category, image, ra
                 <span>({rating.count})</span>
             </RatingContainer>
             <ButtonContainer>
-                <Button disabled={isLoading} title='Add to Cart' borderColor={colors.black} onClickHandler={() => {
-                  handleAction(addToCart, cartItem)
+                <Button title='Add to Cart' borderColor={colors.black} onClickHandler={() => {
+                  dispatch(addToCart(cartItem))
                 }}></Button>
             </ButtonContainer>
         </ContentContainer>
