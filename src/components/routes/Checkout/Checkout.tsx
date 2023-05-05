@@ -7,6 +7,7 @@ import { type RootState } from '../../../redux/store'
 import { StyledLink } from '../../../GlobalStyles'
 import { BsArrowReturnLeft } from 'react-icons/bs'
 import DeliveryForm from '../../features/DeliveryForm/DeliveryForm'
+import PaymentForm from '../../features/PaymentForm/PaymentForm'
 
 interface initialStateInt {
   name: string
@@ -70,7 +71,9 @@ const Checkout = (): JSX.Element => {
               <DeliveryForm onChangeHandler={onChangeHandler}/>
             </CheckoutPersonalDetails>
           </CheckoutLeftContainer>
-          <CheckoutSummaryContainer></CheckoutSummaryContainer>
+          <CheckoutSummaryContainer>
+            <PaymentForm/>
+          </CheckoutSummaryContainer>
       </CheckoutInnerContainer>
       {cart.length > 0 && (
         <ButtonContainer>

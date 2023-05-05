@@ -7,6 +7,7 @@ export const CartPreview = styled.div`
     height: auto;
     width: 300px;
     position: absolute;
+    z-index: 1;
     top: 80px;
     right: 0;
     background: ${colors.white};
