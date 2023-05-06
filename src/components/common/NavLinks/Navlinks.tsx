@@ -15,12 +15,8 @@ const Navlinks = (): JSX.Element => {
     dispatch(fetchProducts())
   }, [dispatch])
 
-  if (status === 'loading') {
-    return <div>Loading...</div>
-  }
-
   if (status === 'failed') {
-    return <div>Error: {error}</div>
+    alert(error ?? 'An Error occured, please try again later')
   }
 
   const toggleVisibility = (): void => {

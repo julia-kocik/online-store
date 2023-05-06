@@ -9,7 +9,7 @@ import Footer from '../../features/Footer/Footer'
 
 const Navigation = (): JSX.Element => {
   return (
-    <>
+    <div>
         <NavigationContainer>
           <Logo/>
           <Navlinks/>
@@ -18,7 +18,7 @@ const Navigation = (): JSX.Element => {
         </NavigationContainer>
         <Outlet/>
         <Footer/>
-    </>
+    </div>
   )
 }
 
