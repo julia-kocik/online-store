@@ -133,14 +133,14 @@ const ProductDetails = (): JSX.Element => {
             <div onClick={increaseAmount}>+</div>
           </ProductDetailsCounterBox>
           <ProductDetailsButtonBox>
-          <Button
-            title='Add to Cart'
-            color={colors.white}
-            height='2.5rem'
-            background={colors.green}
-            disabled={isLoading}
-            onClickHandler={() => handleAction(addToCart, cartItem)}
-          ></Button>
+            <Button
+              title='Add to Cart'
+              color={colors.white}
+              height='2.5rem'
+              background={colors.green}
+              disabled={isLoading}
+              onClickHandler={() => handleAction(addToCart, cartItem)}
+            ></Button>
           </ProductDetailsButtonBox>
         </ProductDetailsRightContainer>
         </ProductDetailsContainer>

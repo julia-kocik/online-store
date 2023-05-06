@@ -42,7 +42,7 @@ export const Overlay = styled.div<OverlayProps>`
 
 export const ProductDetailsRightContainer = styled.div`
     display: grid;
-    grid-template-rows: 50% 10% 10% 30%;
+    grid-template-rows: fit-content(40%) 10% 10%;
     row-gap: 0.5rem;
     padding: 0 2rem;
     h5 {
