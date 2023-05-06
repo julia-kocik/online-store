@@ -23,7 +23,7 @@ export const CartPreviewImage = styled.img`
     padding: 0.5rem;
 `
 
-export const CartPreviewAmount = styled.p`
+export const CartPreviewAmount = styled.div`
     cursor: pointer;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
