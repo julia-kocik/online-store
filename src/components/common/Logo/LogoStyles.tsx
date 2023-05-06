@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../../colors'
-import { BsFillCartCheckFill } from 'react-icons/bs'
+import { MdOutlineStorefront } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
 export const LogoContainer = styled.div`
@@ -20,7 +20,7 @@ export const LogoInnerContainer = styled.div`
     font-size: 24px;
   }
 `
-export const StyledLogo = styled(BsFillCartCheckFill)`
+export const StyledLogo = styled(MdOutlineStorefront)`
   font-size: 48px;
 `
 export const StyledRouterLink = styled(Link)`
