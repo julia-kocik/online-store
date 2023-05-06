@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../../colors'
+import { colors, variables } from '../../../colors'
 import { BsSearch } from 'react-icons/bs'
 
 export const SearchbarContainer = styled.div`
@@ -9,6 +9,9 @@ export const SearchbarContainer = styled.div`
     align-items: center;
     justify-content: center;
     position: relative;
+    ${variables.mobile} {
+      margin-bottom: 1rem;    
+    }
 `
 
 export const StyledSearchInput = styled.input`

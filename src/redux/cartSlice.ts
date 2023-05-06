@@ -30,6 +30,7 @@ export const cartSlice = createSlice({
       } else {
         state.cart.push(item)
       }
+      alert('Product successfully added to cart')
     },
     removeFromCart: (state, action) => {
       const id = action.payload

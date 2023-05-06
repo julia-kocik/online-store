@@ -8,5 +8,7 @@ export const colors = {
 }
 
 export const variables = {
-  boxShadow: '0px 0px 28px 0px rgba(184, 186, 204, 1)'
+  boxShadow: '0px 0px 28px 0px rgba(184, 186, 204, 1)',
+  tablet: '@media (max-width: 1024px)',
+  mobile: '@media (max-width: 768px)'
 }

@@ -26,6 +26,18 @@ export const CartContainer = styled.div`
     &:hover ${CartPreview} {
         visibility: visible;
     }
+    ${variables.tablet} {    
+    }
+    ${variables.mobile} {
+        flex-direction: column;
+        height: auto;
+        position: absolute;
+        top: -0.25rem;
+        right: 1rem;
+        & > * {
+        margin-top: 1rem;
+        }
+    }
 `
 
 export const CartCounterWrapper = styled.div`
