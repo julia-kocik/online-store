@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { type AppDispatch, type RootState } from '../../../redux/store'
 import { fetchProducts } from '../../../redux/productSlice'
-import { ActiveImage, Overlay, ProductDetailsBox, ProductDetailsButtonBox, ProductDetailsContainer, ProductDetailsCounterBox, ProductDetailsLeftContainer, ProductDetailsRightContainer, ProductDetailsTitle, ProductsDetailsBottomContainer, SmallImage } from './ProductDetailsStyles'
+import { ActiveImage, Overlay, ProductDetailsBox, ProductDetailsButtonBox, ProductDetailsContainer, ProductDetailsCounterBox, ProductDetailsLeftContainer, ProductDetailsRightContainer, ProductDetailsTitle } from './ProductDetailsStyles'
 import Button from '../../common/Button/Button'
 import { colors } from '../../../colors'
 import { cartSlice } from '../../../redux/cartSlice'
@@ -73,7 +73,7 @@ const ProductDetails = (): JSX.Element => {
   if (status === 'failed') {
     return <div>Error: {error}</div>
   }
-  const colorsOfProducts = ['green', 'blue', 'orange', 'purple']
+  // const colorsOfProducts = ['green', 'blue', 'orange', 'purple']
 
   const onColorChange = (color: string): void => {
     setActiveColor(color)
@@ -118,11 +118,6 @@ const ProductDetails = (): JSX.Element => {
             <ActiveImage url={activeProduct?.image} onClick={() => onColorChange('')}>
               <Overlay color={activeColor}/>
             </ActiveImage>
-            <ProductsDetailsBottomContainer>
-              {colorsOfProducts.map(item => (
-                <SmallImage onClick={() => onColorChange(item)} key={item} url={activeProduct?.image}><Overlay color={item}/></SmallImage>
-              ))}
-            </ProductsDetailsBottomContainer>
           </ProductDetailsLeftContainer>
         <ProductDetailsRightContainer>
           <ProductDetailsBox>

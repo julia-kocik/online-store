@@ -15,7 +15,7 @@ export const ProductDetailsContainer = styled.div`
 `
 export const ProductDetailsLeftContainer = styled.div`
     display: grid;
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: 1fr;
     height: 100%;
 `
 interface ImageProps extends HTMLAttributes<HTMLDivElement> {
@@ -40,21 +40,6 @@ export const Overlay = styled.div<OverlayProps>`
     opacity: 0.3;
 `
 
-export const ProductsDetailsBottomContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    column-gap: 0.5rem;   
-`
-
-export const SmallImage = styled.div<ImageProps>`
-    background-image: url(${props => props.url});
-    background-size: 35%; 
-    background-repeat: no-repeat; 
-    background-position: center;
-    margin-top: 0.5rem;
-    box-shadow: ${variables.boxShadow};
-    cursor: pointer;
-`
 export const ProductDetailsRightContainer = styled.div`
     display: grid;
     grid-template-rows: 50% 10% 10% 30%;
