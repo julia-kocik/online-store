@@ -4,6 +4,7 @@ import { colors, variables } from '../../../colors'
 export const CheckoutContainer = styled.div`
     min-height: 80vh;
     padding-top: 2rem;
+    margin-bottom: 3rem;
 `
 
 export const CheckoutInnerContainer = styled.div`
@@ -30,6 +31,11 @@ export const CheckoutTotalPriceInner = styled.div`
     justify-content: space-between;
 `
 
+export const ReturnContainer = styled.div`
+    display: grid;
+    justify-items: end;   
+`
+
 export const CheckoutPersonalDetails = styled.div`
     border-radius: 0.5rem;
     box-shadow: ${variables.boxShadow};
@@ -38,20 +44,17 @@ export const CheckoutPersonalDetails = styled.div`
 `
 
 export const CheckoutSummaryContainer = styled.div`
-    border-radius: 0.5rem;
-    box-shadow: ${variables.boxShadow};
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    row-gap: 1rem;
 `
 
 export const ButtonContainer = styled.div`
     display: grid;
     justify-items: end;
     align-items: center;
-    height: 130px;
-    width: 90%;
-`
-
-export const ReturnContainer = styled.div`
-    display: grid;
-    justify-items: end;
-    
-`
+    height: 120px;
+    width: 100%;
+    padding-right: 1rem;
+    box-shadow: ${variables.boxShadow};
+    border-radius: 0.5rem;`
