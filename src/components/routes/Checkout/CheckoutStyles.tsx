@@ -55,6 +55,6 @@ export const ButtonContainer = styled.div`
     align-items: center;
     height: 120px;
     width: 100%;
-    padding-right: 1rem;
+    padding-right: 2rem;
     box-shadow: ${variables.boxShadow};
     border-radius: 0.5rem;`

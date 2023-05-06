@@ -10,7 +10,7 @@ export const PaymentFormContainer = styled.div`
     color: ${colors.green};
     div {
         width: 100%;
-        padding: 1rem;
+        padding: 1rem 2rem;
     }
     span {
         font-size: 0.75rem;
