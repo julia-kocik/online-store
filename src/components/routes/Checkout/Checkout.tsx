@@ -86,7 +86,8 @@ const Checkout = (): JSX.Element => {
       alert(paymentResult.error)
     } else {
       if (paymentResult.paymentIntent.status === 'succeeded') {
-        alert('payment successfull')
+        alert('payment successful')
+        elements.getElement(CardElement)?.clear()
       }
     }
   }
@@ -112,13 +113,13 @@ const Checkout = (): JSX.Element => {
           </CheckoutLeftContainer>
           <CheckoutSummaryContainer>
             <PaymentForm/>
+              {cart.length > 0 && (
+              <ButtonContainer>
+                <Button disabled={isProcessingPayment} onClickHandler={onSubmitHandler} title='Process payment' color={colors.white} background={colors.green} fontSize='1rem' height='3rem'/>
+              </ButtonContainer>
+              )}
           </CheckoutSummaryContainer>
       </CheckoutInnerContainer>
-      {cart.length > 0 && (
-        <ButtonContainer>
-          <Button disabled={isProcessingPayment} onClickHandler={onSubmitHandler} title='Process payment' color={colors.white} background={colors.green} fontSize='1rem' height='3rem'/>
-        </ButtonContainer>
-      )}
     </CheckoutContainer>
   )
 }
