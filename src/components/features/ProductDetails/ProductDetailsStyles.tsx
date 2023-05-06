@@ -16,7 +16,7 @@ export const ProductDetailsContainer = styled.div`
 export const ProductDetailsLeftContainer = styled.div`
     display: grid;
     grid-template-rows: 1fr;
-    height: 100%;
+    height: 94%;
 `
 interface ImageProps extends HTMLAttributes<HTMLDivElement> {
   url?: string
@@ -60,7 +60,7 @@ export const ProductDetailsBox = styled.div`
 `
 export const ProductDetailsButtonBox = styled.div`
     justify-self: end; 
-    margin-top: 1.5rem;
+    margin-bottom: 5rem;
 `
 
 export const ProductDetailsCounterBox = styled(ProductDetailsBox)`
