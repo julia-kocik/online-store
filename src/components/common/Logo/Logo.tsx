@@ -8,7 +8,7 @@ const Logo = (): JSX.Element => {
         <StyledRouterLink to="/">
           <StyledLogo/>
         </StyledRouterLink>
-        <h2>HappyCart</h2>
+        <h2>OnlineMart</h2>
       </LogoInnerContainer>
     </LogoContainer>
   )

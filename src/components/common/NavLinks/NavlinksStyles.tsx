@@ -54,4 +54,7 @@ export const StyledArrowIcon = styled(IoIosArrowDown)`
 export const StyledRouterLink = styled(Link)`
   color: ${colors.white};
   text-decoration: none;
+  &:hover {
+    color: ${colors.lightgray};
+  }
 `

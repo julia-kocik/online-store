@@ -1,5 +1,6 @@
 import { type HTMLAttributes } from 'react'
 import styled from 'styled-components'
+import { colors } from '../../../colors'
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   color?: string
@@ -20,4 +21,9 @@ export const ButtonStyles = styled.button<ButtonProps>`
     cursor: pointer;
     font-size: ${props => props.fontSize ? props.fontSize : ''};
     height: ${props => props.height ? props.height : ''};
+    transition: 1s all;
+    &:hover {
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+      background: ${colors.active};
+    }
 `

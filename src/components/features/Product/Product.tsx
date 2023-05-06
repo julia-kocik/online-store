@@ -54,7 +54,7 @@ const Product: React.FC<ProductProps> = ({ id, title, price, category, image, ra
                 <span>({rating.count})</span>
             </RatingContainer>
             <ButtonContainer>
-                <Button title='Add to Cart' borderColor={colors.black} onClickHandler={() => {
+                <Button title='Add to Cart' background={colors.green} color={colors.white} onClickHandler={() => {
                   dispatch(addToCart(cartItem))
                 }}></Button>
             </ButtonContainer>
