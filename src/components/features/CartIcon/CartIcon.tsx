@@ -8,15 +8,14 @@ const CartIcon = (): JSX.Element => {
   const cart = useSelector((state: RootState) => state.cartState.cart)
   const [totalCartAmount, setTotalCartAmount] = useState(0)
 
+  useEffect(() => {
+    calculateTotalCartItemsAmount()
+  }, [cart])
+
   const calculateTotalCartItemsAmount = (): void => {
     const totalAmount = cart.reduce((acc, { amount }) => acc + amount, 0)
     setTotalCartAmount(totalAmount)
   }
-
-  useEffect(() => {
-    calculateTotalCartItemsAmount()
-  }, [cart])
-  console.log(cart.length)
   return (
     <CartContainer>
       <CartCounterWrapper>

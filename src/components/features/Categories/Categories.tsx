@@ -31,7 +31,7 @@ const Categories = (): JSX.Element => {
         <div key={category}>
           <h2>{category}</h2>
           <ProductsContainer>
-            {productsPerCategory.map(item => (
+            {productsPerCategory.slice(0, 4).map(item => (
               <Product key={item.id} {...item}/>
             ))}
           </ProductsContainer>
