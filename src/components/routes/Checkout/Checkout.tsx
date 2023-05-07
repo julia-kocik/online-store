@@ -36,6 +36,7 @@ const Checkout = (): JSX.Element => {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false)
   const stripe = useStripe()
   const elements = useElements()
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
   useEffect(() => {
     const totalPrice = calculateTotalPrice()
@@ -56,7 +57,15 @@ const Checkout = (): JSX.Element => {
 
   const onSubmitHandler = async (e): Promise<void> => {
     e.preventDefault()
-
+    const { name, address, city, zipcode, mobile, email } = formState
+    if (!name || !address || !city || !zipcode || !mobile || !email) {
+      alert('Your delivery information is incomplete')
+      return
+    }
+    if (!regex.test(email)) {
+      alert('Your email is invalid')
+      return
+    }
     if (!stripe || !elements) {
       return
     }
