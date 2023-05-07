@@ -13,6 +13,10 @@ export const CartScreenInnerContainer = styled.div`
     gap: 0.75rem;
     width: 70%;
     margin: 2rem auto;
+    ${variables.tablet} {
+      width: 100%; 
+
+    }
 `
 export const CartScreenItemContainer = styled.div`
     box-shadow: ${variables.boxShadow};
@@ -23,6 +27,9 @@ export const CartScreenItemContainer = styled.div`
     border-radius: 0.5rem;
     span {
         justify-self: center;
+    }
+    ${variables.tablet} {
+        grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
     }
 `
 export const CartScreenImage = styled.img`
@@ -52,4 +59,7 @@ export const ButtonContainer = styled(Link)`
     width: 70%;
     margin: 0 auto 3rem auto;
     text-decoration: none;
+    ${variables.tablet} {
+      width: 100%;    
+    }
 `

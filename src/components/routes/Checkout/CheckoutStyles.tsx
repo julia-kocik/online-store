@@ -14,6 +14,9 @@ export const CheckoutInnerContainer = styled.div`
     column-gap: 1rem;
     width: 80%;
     margin: 0 auto;
+    ${variables.tablet} {
+        width: 100%;
+    }
 `
 export const CheckoutLeftContainer = styled.div`
     display: grid;
@@ -57,4 +60,9 @@ export const ButtonContainer = styled.div`
     width: 100%;
     padding-right: 2rem;
     box-shadow: ${variables.boxShadow};
-    border-radius: 0.5rem;`
+    border-radius: 0.5rem;
+    ${variables.tablet} {
+        padding-right: 0;
+        justify-items: center;
+    }
+`
