@@ -1,12 +1,15 @@
 import { IoIosArrowDown } from 'react-icons/io'
 import styled from 'styled-components'
-import { colors } from '../../../colors'
+import { colors, variables } from '../../../colors'
 import { type HTMLAttributes } from 'react'
 import { Link } from 'react-router-dom'
 
 export const NavlinksContainer = styled.div`
   flex: 0 0 45%;
   color: ${colors.green};
+  ${variables.tablet} {
+      flex: 0 0 35%;
+  }
 `
 export const NavlinksList = styled.ul`
   list-style-type: none;

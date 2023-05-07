@@ -4,11 +4,13 @@ import { BsSearch } from 'react-icons/bs'
 
 export const SearchbarContainer = styled.div`
     color: #fff;
-    flex: 0 0 30%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    ${variables.tablet} {
+      flex: 0 0 40%;
+    }
     ${variables.mobile} {
       margin-bottom: 1rem;    
     }

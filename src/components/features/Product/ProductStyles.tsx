@@ -18,6 +18,9 @@ export const ImageContainer = styled.div<ImageContainerProps>`
     background-size: 45%; 
     background-repeat: no-repeat; 
     background-position: center;
+    ${variables.tablet} {
+        background-size: 20%; 
+    }
 `
 
 export const ContentContainer = styled.div`

@@ -12,6 +12,12 @@ export const ProductDetailsContainer = styled.div`
     width: 90vw;
     height: 70vh;
     margin: 1rem 0 3rem 0;
+    ${variables.tablet} {
+        grid-template-columns: 1fr;
+        width: 80vw;
+        height: 80vh;
+        margin: 1rem 0;
+    }
 `
 export const ProductDetailsLeftContainer = styled.div`
     display: grid;
@@ -28,7 +34,9 @@ export const ActiveImage = styled.div<ImageProps>`
     background-repeat: no-repeat; 
     background-position: center;
     box-shadow: ${variables.boxShadow};
-
+    ${variables.tablet} {
+       height: 450px;
+    }
 `
 interface OverlayProps extends HTMLAttributes<HTMLDivElement> {
   color?: string
