@@ -5,7 +5,7 @@ import { type HTMLAttributes } from 'react'
 import { Link } from 'react-router-dom'
 
 export const NavlinksContainer = styled.div`
-  flex: 0 0 45%;
+  flex: 0 0 55%;
   color: ${colors.green};
   ${variables.tablet} {
       flex: 0 0 35%;
