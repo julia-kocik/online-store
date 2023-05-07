@@ -54,10 +54,15 @@ export const StyledArrowIcon = styled(IoIosArrowDown)`
   cursor: pointer;
 `
 
-export const StyledRouterLink = styled(Link)`
+interface StyledRouterLinkProps {
+  visibility?: string
+}
+
+export const StyledRouterLink = styled(Link)<StyledRouterLinkProps>`
   color: ${colors.white};
   text-decoration: none;
   &:hover {
     color: ${colors.lightgray};
   }
+  pointer-events: ${(props) => (props.visibility === 'visible' ? 'auto' : 'none')};
 `

@@ -30,7 +30,7 @@ const Navlinks = (): JSX.Element => {
           <NavlinksSubList visibility={visibility ? 'visible' : 'hidden'}>
             {Object.keys(products).map(category => (
               <li key={category}>
-                <StyledRouterLink to={`/${category}`}>
+                <StyledRouterLink to={`/${category}`} visibility={visibility ? 'visible' : 'hidden'}>
                   {category}
                 </StyledRouterLink>
               </li>
