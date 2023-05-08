@@ -10,7 +10,7 @@ const DeliveryForm: React.FC<DeliveryFormProps> = ({ onChangeHandler }) => {
   return (
     <FormContainer>
       {personalDetails.map((detail, index) => (
-        <FormInput key={index} name={detail} placeholder={detail} onChange={onChangeHandler}/>
+        <FormInput key={index} type={detail === 'zipcode' || detail === 'mobile' ? 'number' : 'text'} name={detail} placeholder={detail} onChange={onChangeHandler}/>
       ))}
     </FormContainer>
   )

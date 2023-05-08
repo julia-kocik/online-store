@@ -66,6 +66,8 @@ const Checkout = (): JSX.Element => {
       alert('Your email is invalid')
       return
     }
+    // todo: implement sending delivery data to api
+    console.log(formState)
     if (!stripe || !elements) {
       return
     }
