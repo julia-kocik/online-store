@@ -45,7 +45,7 @@ const Product: React.FC<ProductProps> = ({ id, title, price, category, image, ra
         <ContentContainer>
             <TitleContainer>
                 <h5>{`${shortTitle[0]} ${shortTitle[1]} ${shortTitle[2]}` }</h5>
-                <h5>{price}</h5>
+                <h5>${price.toFixed(2)}</h5>
             </TitleContainer>
             <RatingContainer>
                 <span>

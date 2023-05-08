@@ -34,7 +34,7 @@ const Category = (): JSX.Element => {
 
   return (
     <div>
-      <h3>{category}</h3>
+      <h3>{category === 'jewelery' ? 'jewellery' : category}</h3>
       <div>
       <ProductsContainer>
         {arrayOfProducts?.map(item => (
