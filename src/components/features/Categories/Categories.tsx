@@ -10,6 +10,7 @@ const Categories = (): JSX.Element => {
   const products = useSelector((state: RootState) => state.products.data)
   const status = useSelector((state: RootState) => state.products.status)
   const error = useSelector((state: RootState) => state.products.error)
+  const searchTerm = useSelector((state: RootState) => state.products.searchTerm)
 
   useEffect(() => {
     dispatch(fetchProducts())
@@ -22,18 +23,20 @@ const Categories = (): JSX.Element => {
   if (status === 'failed') {
     return <div>Error: {error}</div>
   }
-
   return (
     <div>
       {Object.keys(products).map(category => {
         const productsPerCategory = products[category]
+        const filteredProducts = productsPerCategory.filter(item => item.title?.toLowerCase().includes(searchTerm)).slice(0, 4)
         return (
         <div key={category}>
-          <h2>{category}</h2>
+          <h2>{category === 'jewelery' ? 'jewellery' : category}</h2>
           <ProductsContainer>
-            {productsPerCategory.slice(0, 4).map(item => (
+            {filteredProducts.length > 0
+              ? filteredProducts.map(item => (
               <Product key={item.id} {...item}/>
-            ))}
+              ))
+              : 'There no products with this search term'}
           </ProductsContainer>
         </div>
         )
