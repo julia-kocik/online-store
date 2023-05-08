@@ -37,7 +37,7 @@ const Categories = (): JSX.Element => {
           <h2>{category === 'jewelery' ? 'jewellery' : category}</h2>
           <ProductsContainer>
             {filteredProducts?.length > 0
-              ? filteredProducts.map(item => (
+              ? filteredProducts?.map(item => (
               <Product key={item.id} {...item}/>
               ))
               : 'There no products with this search term'}
