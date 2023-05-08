@@ -16,6 +16,10 @@ const Categories = (): JSX.Element => {
     dispatch(fetchProducts())
   }, [dispatch])
 
+  useEffect(() => {
+    console.log(searchTerm)
+  }, [searchTerm])
+
   if (status === 'loading') {
     return <div>Loading...</div>
   }
@@ -27,7 +31,7 @@ const Categories = (): JSX.Element => {
     <div>
       {Object.keys(products).map(category => {
         const productsPerCategory = products[category]
-        const filteredProducts = productsPerCategory.filter(item => item.title?.toLowerCase().includes(searchTerm)).slice(0, 4)
+        const filteredProducts = productsPerCategory.filter(item => item.title?.toLowerCase()?.includes(searchTerm))?.slice(0, 4)
         return (
         <div key={category}>
           <h2>{category === 'jewelery' ? 'jewellery' : category}</h2>
