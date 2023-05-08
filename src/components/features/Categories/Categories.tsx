@@ -16,10 +16,6 @@ const Categories = (): JSX.Element => {
     dispatch(fetchProducts())
   }, [dispatch])
 
-  useEffect(() => {
-    console.log(searchTerm)
-  }, [searchTerm])
-
   if (status === 'loading') {
     return <div>Loading...</div>
   }
