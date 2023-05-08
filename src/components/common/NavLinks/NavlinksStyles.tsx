@@ -20,6 +20,9 @@ export const NavlinksList = styled.ul`
   align-items: center;
   justify-content: end;
   padding-right: 1rem;
+  ${variables.mobile} {
+    justify-content: center;
+  }
 `
 
 export const NavlinksLinks = styled.li`
@@ -46,6 +49,10 @@ export const NavlinksSubList = styled.ul<NavlinksSubListProps>`
   transition: opacity 0.5s ease-in-out;
   opacity: ${props => (props.visibility === 'visible' ? '1' : '0')};
   z-index: 1;
+  ${variables.mobile} {
+    left: -1.5rem;
+    width: 160%;
+  }
 `
 
 export const StyledArrowIcon = styled(IoIosArrowDown)`

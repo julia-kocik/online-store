@@ -53,6 +53,10 @@ export const ProductDetailsRightContainer = styled.div`
     grid-template-rows: fit-content(40%) 10% 10%;
     row-gap: 0.5rem;
     padding: 0 2rem;
+    ${variables.mobile} {
+        padding: 0;
+        grid-template-rows: fit-content(35%) 8% 10% 20%;
+    }
     h5 {
         font-size: 24px;
         margin: 0;
@@ -80,6 +84,7 @@ export const ProductDetailsCounterBox = styled(ProductDetailsBox)`
     width: 7rem;
     margin-top: 0.25rem;
     cursor: pointer;
+    max-height: 60px;
     div {
         display: grid;
         place-items: center;

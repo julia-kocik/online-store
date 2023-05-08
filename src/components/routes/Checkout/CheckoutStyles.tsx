@@ -17,11 +17,18 @@ export const CheckoutInnerContainer = styled.div`
     ${variables.tablet} {
         width: 100%;
     }
+    ${variables.mobile} {
+        grid-template-columns: 1fr;
+    }
 `
 export const CheckoutLeftContainer = styled.div`
     display: grid;
     grid-template-rows: 1fr 2fr;
     row-gap: 1rem;
+    ${variables.mobile} {
+        margin-bottom: 1rem;
+        grid-template-rows: 0.75fr 1.75fr;
+    }
 `
 export const CheckoutTotalPrice = styled.div`
     border-radius: 0.5rem;
@@ -50,6 +57,10 @@ export const CheckoutSummaryContainer = styled.div`
     display: grid;
     grid-template-rows: 1fr 2fr;
     row-gap: 1rem;
+    ${variables.mobile} {
+        margin-bottom: 1rem;
+        grid-template-rows: 1fr 1fr;
+    }
 `
 
 export const ButtonContainer = styled.div`

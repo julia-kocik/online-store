@@ -21,6 +21,9 @@ export const ImageContainer = styled.div<ImageContainerProps>`
     ${variables.tablet} {
         background-size: 20%; 
     }
+    ${variables.mobile} {
+        background-size: 30%; 
+    }
 `
 
 export const ContentContainer = styled.div`

@@ -15,7 +15,6 @@ export const CartScreenInnerContainer = styled.div`
     margin: 2rem auto;
     ${variables.tablet} {
       width: 100%; 
-
     }
 `
 export const CartScreenItemContainer = styled.div`
@@ -30,6 +29,10 @@ export const CartScreenItemContainer = styled.div`
     }
     ${variables.tablet} {
         grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    }
+    ${variables.mobile} {
+        grid-template-columns: 1fr 10rem 1fr 1fr 3rem;
+        overflow-y: hidden;
     }
 `
 export const CartScreenImage = styled.img`
