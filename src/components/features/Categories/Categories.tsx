@@ -32,7 +32,7 @@ const Categories = (): JSX.Element => {
         <div key={category}>
           <h2>{category === 'jewelery' ? 'jewellery' : category}</h2>
           <ProductsContainer>
-            {filteredProducts.length > 0
+            {filteredProducts?.length > 0
               ? filteredProducts.map(item => (
               <Product key={item.id} {...item}/>
               ))
