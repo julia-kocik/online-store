@@ -18,12 +18,14 @@ interface ProductsState {
   data: Product[]
   status: 'idle' | 'loading' | 'succeeded' | 'failed'
   error: string | null
+  searchTerm: string
 }
 
 const initialState: ProductsState = {
   data: [],
   status: 'idle',
-  error: null
+  error: null,
+  searchTerm: ''
 }
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
@@ -41,7 +43,11 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    setSearchTerm: (state, action) => {
+      state.searchTerm = action.payload
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchProducts.pending, state => {

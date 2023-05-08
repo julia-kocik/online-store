@@ -12,7 +12,7 @@ export const SearchbarContainer = styled.div`
       flex: 0 0 40%;
     }
     ${variables.mobile} {
-      margin-bottom: 1rem;    
+      margin: 1rem 0;    
     }
 `
 
