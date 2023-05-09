@@ -1,9 +1,22 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { Provider } from 'react-redux'
+import mockStore from './mockStore'
 import App from './App'
 
-test('renders learn react link', () => {
-  render(<App />)
-  const linkElement = screen.getByText(/learn react/i)
-  expect(linkElement).toBeInTheDocument()
+const store = mockStore({
+  myReducer: {
+    myData: 'test data'
+  }
+})
+
+describe('MyComponent', () => {
+  it('should render correctly', () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    )
+
+    expect(screen.getByText(/OnlineMart/i)).toBeInTheDocument()
+  })
 })

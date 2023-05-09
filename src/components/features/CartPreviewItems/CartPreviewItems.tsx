@@ -7,9 +7,9 @@ import { cartSlice } from '../../../redux/cartSlice'
 const { increaseItemQuantity, decreaseItemQuantity } = cartSlice.actions
 
 const CartPreviewItems = (): JSX.Element => {
-  const cart = useSelector((state: RootState) => state.cartState.cart)
+  const cart = useSelector((state: RootState) => state.cartState?.cart)
   const dispatch = useDispatch<AppDispatch>()
-  const cartSample = cart.slice(0, 3)
+  const cartSample = cart?.slice(0, 3)
 
   const calculateTotalPrice = (price, amount): string => {
     return (price * amount).toFixed(2)
@@ -17,7 +17,7 @@ const CartPreviewItems = (): JSX.Element => {
 
   return (
     <CartPreviewContainer>
-        {cartSample.map(cartPreviewItem => (
+        {cartSample?.map(cartPreviewItem => (
             <CartPreviewItem key={cartPreviewItem.id}>
                 <CartPreviewImage src={cartPreviewItem.image} alt={cartPreviewItem.title} />
                 <CartPreviewAmount>
@@ -37,7 +37,7 @@ const CartPreviewItems = (): JSX.Element => {
                 <p>${calculateTotalPrice(cartPreviewItem.price, cartPreviewItem.amount)}</p>
             </CartPreviewItem>
         ))}
-        {cartSample.length > 0 && <CartLink to='/cart'><span>{cart.length > 3 ? 'Show all items' : 'Go to cart' }</span></CartLink>}
+        {cartSample?.length > 0 && <CartLink to='/cart'><span>{cart?.length > 3 ? 'Show all items' : 'Go to cart' }</span></CartLink>}
     </CartPreviewContainer>
   )
 }

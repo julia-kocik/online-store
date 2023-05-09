@@ -12,7 +12,7 @@ const { increaseItemQuantity, decreaseItemQuantity, removeFromCart } = cartSlice
 const CartScreen = (): JSX.Element => {
   const cart = useSelector((state: RootState) => state.cartState.cart)
   const dispatch = useDispatch<AppDispatch>()
-  if (cart.length === 0) {
+  if (cart?.length === 0) {
     return <h3>
       <StyledLink to='/'>Your cart is empty, please return to homepage</StyledLink>
     </h3>
@@ -20,7 +20,7 @@ const CartScreen = (): JSX.Element => {
   return (
     <CartScreenContainer>
       <CartScreenInnerContainer>
-        {cart.map((cartItem) => (
+        {cart?.map((cartItem) => (
           <CartScreenItemContainer key={cartItem.id}>
               <CartScreenImage src={cartItem.image} alt={cartItem.title} />
               <div>{cartItem.title}</div>
@@ -44,7 +44,7 @@ const CartScreen = (): JSX.Element => {
           </CartScreenItemContainer>
         ))}
       </CartScreenInnerContainer>
-      {cart.length > 0 && (
+      {cart?.length > 0 && (
         <ButtonContainer to='/checkout'>
           <Button title='Proceed to checkout' color={colors.white} background={colors.green} fontSize='1rem' height='3rem'/>
         </ButtonContainer>

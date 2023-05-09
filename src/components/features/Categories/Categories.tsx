@@ -7,10 +7,10 @@ import Product from '../Product/Product'
 
 const Categories = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>()
-  const products = useSelector((state: RootState) => state.products.data)
-  const status = useSelector((state: RootState) => state.products.status)
-  const error = useSelector((state: RootState) => state.products.error)
-  const searchTerm = useSelector((state: RootState) => state.products.searchTerm)
+  const products = useSelector((state: RootState) => state.products?.data)
+  const status = useSelector((state: RootState) => state.products?.status)
+  const error = useSelector((state: RootState) => state.products?.error)
+  const searchTerm = useSelector((state: RootState) => state.products?.searchTerm)
 
   useEffect(() => {
     dispatch(fetchProducts())
@@ -25,10 +25,11 @@ const Categories = (): JSX.Element => {
   }
   return (
     <div>
-      {Object.keys(products).map(category => {
-        const productsPerCategory = products[category]
-        const filteredProducts = productsPerCategory.filter(item => item.title?.toLowerCase()?.includes(searchTerm ?? ''))?.slice(0, 4)
-        return (
+      {products !== null
+        ? Object.keys(products || {})?.map(category => {
+          const productsPerCategory = products[category]
+          const filteredProducts = productsPerCategory.filter(item => item.title?.toLowerCase()?.includes(searchTerm ?? ''))?.slice(0, 4)
+          return (
         <div key={category}>
           <h2>{category === 'jewelery' ? 'jewellery' : category}</h2>
           <ProductsContainer>
@@ -39,9 +40,10 @@ const Categories = (): JSX.Element => {
               : 'There no products with this search term'}
           </ProductsContainer>
         </div>
+          )
+        }
         )
-      }
-      )}
+        : ''}
     </div>
   )
 }

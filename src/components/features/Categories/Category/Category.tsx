@@ -10,9 +10,9 @@ import { StyledLink } from '../../../../GlobalStyles'
 const Category = (): JSX.Element => {
   const { category } = useParams()
   const dispatch = useDispatch<AppDispatch>()
-  const products = useSelector((state: RootState) => state.products.data)
-  const status = useSelector((state: RootState) => state.products.status)
-  const error = useSelector((state: RootState) => state.products.error)
+  const products = useSelector((state: RootState) => state.products?.data)
+  const status = useSelector((state: RootState) => state.products?.status)
+  const error = useSelector((state: RootState) => state.products?.error)
 
   useEffect(() => {
     dispatch(fetchProducts())
@@ -25,19 +25,19 @@ const Category = (): JSX.Element => {
   if (status === 'failed') {
     return <div>Error: {error}</div>
   }
-  const arrayOfProducts = products[category ?? '']
+  // to fix
+  const arrayOfProducts: any = products[category ?? '']
   if (!arrayOfProducts) {
     return <h3>
       <StyledLink to='/'>There is no product with these params, check your link or go back to homepage.</StyledLink>
     </h3>
   }
-
   return (
     <div>
       <h3>{category === 'jewelery' ? 'jewellery' : category}</h3>
       <div>
       <ProductsContainer>
-        {arrayOfProducts?.map(item => (
+        {arrayOfProducts.map(item => (
           <Product key={item.id} {...item}/>
         ))}
         </ProductsContainer>

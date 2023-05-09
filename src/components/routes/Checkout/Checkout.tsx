@@ -44,9 +44,9 @@ const Checkout = (): JSX.Element => {
   }, [])
 
   const calculateTotalPrice = (): string => {
-    return cart.map(cartItem => {
+    return cart?.map(cartItem => {
       return cartItem.price * cartItem.amount
-    }).reduce((a, b) => a + b, 0).toFixed(2)
+    })?.reduce((a, b) => a + b, 0).toFixed(2)
   }
 
   const onChangeHandler = (e): void => {
@@ -124,7 +124,7 @@ const Checkout = (): JSX.Element => {
           </CheckoutLeftContainer>
           <CheckoutSummaryContainer>
             <PaymentForm/>
-              {cart.length > 0 && (
+              {cart?.length > 0 && (
               <ButtonContainer>
                 <Button disabled={isProcessingPayment} onClickHandler={onSubmitHandler} title='Process payment' color={colors.white} background={colors.green} fontSize='1rem' height='3rem'/>
               </ButtonContainer>

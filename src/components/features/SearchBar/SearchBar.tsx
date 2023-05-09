@@ -7,7 +7,7 @@ const { setSearchTerm } = productsSlice.actions
 
 const SearchBar = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>()
-  const searchTerm = useSelector((state: RootState) => state.products.searchTerm)
+  const searchTerm = useSelector((state: RootState) => state.products?.searchTerm)
   const onChangeHandler = (e): void => {
     dispatch(setSearchTerm(e.target.value?.toLowerCase()))
   }
