@@ -13,7 +13,7 @@ import ProductDetails from './components/features/ProductDetails/ProductDetails'
 import CartScreen from './components/routes/CartScreen/CartScreen'
 import Checkout from './components/routes/Checkout/Checkout'
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: '/',
     element: <Navigation />,
