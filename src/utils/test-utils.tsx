@@ -11,12 +11,12 @@ export function renderWithProviders (
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = configureStore({
-      reducer: { cartReducers: cartSlice.reducer },
+      reducer: { cartState: cartSlice.reducer },
       preloadedState
     }),
     ...renderOptions
   } = {}
-): unknown {
+): any {
   function Wrapper ({ children }): JSX.Element {
     return <Provider store={store}>
                     {children}
