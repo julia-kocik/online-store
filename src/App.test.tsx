@@ -1,22 +1,10 @@
-import { render, screen } from '@testing-library/react'
-import { Provider } from 'react-redux'
-import mockStore from './mockStore'
+import { screen } from '@testing-library/react'
 import App from './App'
-
-const store = mockStore({
-  myReducer: {
-    myData: 'test data'
-  }
-})
+import { renderWithProviders } from './utils/test-utils'
 
 describe('MyComponent', () => {
   it('should render correctly', () => {
-    render(
-      <Provider store={store}>
-        <App />
-      </Provider>
-    )
-
+    renderWithProviders(<App />)
     expect(screen.getByText(/OnlineMart/i)).toBeInTheDocument()
   })
 })

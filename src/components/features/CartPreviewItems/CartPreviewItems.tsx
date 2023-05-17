@@ -16,19 +16,20 @@ const CartPreviewItems = (): JSX.Element => {
   }
 
   return (
-    <CartPreviewContainer>
+    <CartPreviewContainer data-testid='cart-preview-item'>
         {cartSample?.map(cartPreviewItem => (
             <CartPreviewItem key={cartPreviewItem.id}>
                 <CartPreviewImage src={cartPreviewItem.image} alt={cartPreviewItem.title} />
                 <CartPreviewAmount>
                     <div
+                    data-testid='cart-increase-button'
                       onClick={() => {
                         dispatch(increaseItemQuantity(cartPreviewItem.id))
                       }}>
                       <IoIosArrowUp/>
                     </div>
-                    <div>{cartPreviewItem.amount}</div>
-                    <div onClick={() => {
+                    <div data-testid='cart-amount'>{cartPreviewItem.amount}</div>
+                    <div data-testid='cart-decrease-button' onClick={() => {
                       dispatch(decreaseItemQuantity(cartPreviewItem.id))
                     }}>
                       <IoIosArrowDown/>
