@@ -1,9 +1,11 @@
+import storage from './storage'
+
 const KEY = 'redux'
-export function loadState <T> (): T | undefined {
+export function loadState<T> (): T | undefined {
   try {
-    const serializedState = localStorage.getItem(KEY)
+    const serializedState = storage.getItem(KEY)
     if (!serializedState) return undefined
-    return JSON.parse(serializedState)
+    return serializedState as T
   } catch (e) {
     // Ignore
   }
@@ -11,8 +13,8 @@ export function loadState <T> (): T | undefined {
 
 export async function saveState <T> (state: T): Promise<void> {
   try {
-    const serializedState = JSON.stringify(state)
-    localStorage.setItem(KEY, serializedState)
+    const serializedState = state
+    storage.setItem(KEY, serializedState)
   } catch (e) {
     // Ignore
   }
