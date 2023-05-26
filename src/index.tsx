@@ -7,6 +7,8 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
 import { Elements } from '@stripe/react-stripe-js'
 import { stripePromise } from './stripe/stripe.utils'
+import GlobalStyles from './GlobalStyles'
+import Topbar from './components/features/TopBar/Topbar'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,6 +18,8 @@ root.render(
      <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <Elements stripe={stripePromise}>
+          <Topbar/>
+          <GlobalStyles />
           <App />
         </Elements>
       </PersistGate>
