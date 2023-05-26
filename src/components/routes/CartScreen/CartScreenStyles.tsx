@@ -4,6 +4,7 @@ import { SlTrash } from 'react-icons/sl'
 import { Link } from 'react-router-dom'
 
 export const CartScreenContainer = styled.div`
+    padding-top: 2rem;
     min-height: 80vh;
 `
 
