@@ -2,11 +2,11 @@ import SecureLS from 'secure-ls'
 
 const secureLS = new SecureLS()
 
-const setItem = (key, value): void => {
+const setItem = <T>(key: string, value: T): void => {
   secureLS.set(key, value)
 }
 
-const getItem = <T>(key): T => {
+const getItem = <T>(key: string): T => {
   return secureLS.get(key)
 }
 
