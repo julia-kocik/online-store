@@ -49,9 +49,9 @@ interface CartItemProps {
 const ProductDetails = (): JSX.Element => {
   const { id, category } = useParams()
   const dispatch = useDispatch<AppDispatch>()
-  const products = useSelector((state: RootState) => state.products.data)
-  const status = useSelector((state: RootState) => state.products.status)
-  const error = useSelector((state: RootState) => state.products.error)
+  const products = useSelector((state: RootState) => state.products?.data)
+  const status = useSelector((state: RootState) => state.products?.status)
+  const error = useSelector((state: RootState) => state.products?.error)
   const [activeProduct, setActiveProduct] = useState<Product>(defaultProduct)
   const [activeColor, setActiveColor] = useState('')
   const [amount, setAmount] = useState(1)
@@ -61,8 +61,9 @@ const ProductDetails = (): JSX.Element => {
   }, [dispatch])
 
   useEffect(() => {
-    const idNumber = parseInt(id ?? '')
-    const productWithParamsId = products[category ?? '']?.find(item => item.id === idNumber)
+    const idNumber = parseInt(id ?? '1')
+    const categoryWithFallback = category ?? 'electronics'
+    const productWithParamsId = products?.[categoryWithFallback]?.find(item => item.id === idNumber)
     setActiveProduct(productWithParamsId)
   }, [products])
 

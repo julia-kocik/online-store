@@ -1,8 +1,8 @@
 import React from 'react'
 import { renderWithProviders } from '../../../utils/test-utils'
-import { MemoryRouter } from 'react-router-dom'
 import CartPreviewItems from './CartPreviewItems'
 import { fireEvent } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 
 describe('CartIcon component', () => {
   it('renders cartAmount container with correctly increased value', () => {
