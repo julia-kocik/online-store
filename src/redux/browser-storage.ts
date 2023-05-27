@@ -1,11 +1,13 @@
-import storage from './storage'
+// import storage from './storage'
+
+import storage from '../utils/storage'
 
 const KEY = 'redux'
 export function loadState<T> (): T | undefined {
   try {
     const serializedState = storage.getItem(KEY)
     if (!serializedState) return undefined
-    return serializedState as T
+    return (serializedState)
   } catch (e) {
     // Ignore
   }
