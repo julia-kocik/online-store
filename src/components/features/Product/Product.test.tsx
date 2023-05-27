@@ -2,9 +2,9 @@ import React from 'react'
 import { renderWithProviders } from '../../../utils/test-utils'
 import { testProducts } from '../../../utils/test-products'
 import Product from './Product'
-import { cartSlice } from '../../../redux/cartSlice'
 import { MemoryRouter } from 'react-router-dom'
-const { addToCart } = cartSlice.actions
+import { fireEvent } from '@testing-library/react'
+
 const productToAdd =
     {
       id: 3,
@@ -18,14 +18,6 @@ const productToAdd =
         count: 120
       }
     }
-
-const cartItemToAdd = {
-  id: 3,
-  title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-  price: 109.95,
-  image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-  color: 'white'
-}
 
 describe('CartIcon component', () => {
   it('renders product', async () => {
@@ -50,8 +42,10 @@ describe('CartIcon component', () => {
     })
 
     expect(addToCartBtn).toBeInTheDocument()
-    const cart = store.getState().cartState.cart
+    const cart = store.getState()?.cartState.cart
     expect(cart).toHaveLength(2)
-    store.dispatch(addToCart(cartItemToAdd))
+    fireEvent.click(addToCartBtn)
+    const cart2 = store.getState()?.cartState.cart
+    expect(cart2).toHaveLength(3)
   })
 })
