@@ -33,8 +33,8 @@ const preloadedState = {
   }
 }
 
-describe('CartIcon component', () => {
-  it('renders product', async () => {
+describe('Product component', () => {
+  it('Button adds product to cart ', async () => {
     const { findByRole, store } = renderWithProviders(<MemoryRouter><Product {...productToAdd}/></MemoryRouter>, {
       preloadedState
     })
