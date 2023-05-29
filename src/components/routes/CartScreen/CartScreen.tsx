@@ -25,20 +25,20 @@ const CartScreen = (): JSX.Element => {
               <CartScreenImage src={cartItem.image} alt={cartItem.title} />
               <div>{cartItem.title}</div>
               <CartPreviewAmount>
-                      <div onClick={() => {
-                        dispatch(increaseItemQuantity(cartItem.id))
-                      }}>
-                        <IoIosArrowUp/>
-                      </div>
-                      <div>{cartItem.amount}</div>
-                      <div onClick={() => {
-                        dispatch(decreaseItemQuantity(cartItem.id))
-                      }}>
-                        <IoIosArrowDown/>
-                      </div>
-                  </CartPreviewAmount>
+                <div onClick={() => {
+                  dispatch(increaseItemQuantity(cartItem.id))
+                }}>
+                  <IoIosArrowUp/>
+                </div>
+                <div>{cartItem.amount}</div>
+                <div onClick={() => {
+                  dispatch(decreaseItemQuantity(cartItem.id))
+                }}>
+                  <IoIosArrowDown/>
+                </div>
+              </CartPreviewAmount>
               <div>${(cartItem.price * cartItem.amount).toFixed(2)}</div>
-             <CartRemoveIcon onClick={() => {
+             <CartRemoveIcon data-testid="cartRemoveIcon" onClick={() => {
                dispatch(removeFromCart(cartItem.id))
              }}/>
           </CartScreenItemContainer>
