@@ -35,4 +35,11 @@ describe('CartScreen component', () => {
     const cartAfterRemove = store.getState().cartState.cart
     expect(cartAfterRemove).toHaveLength(1)
   })
+  // TODO
+  it('Increase amount of product after clicking increase icon', () => {})
+  it('Decrease amount of product after clicking decrease icon', () => {})
+  it('Show empty cart message if cart is empty', () => {})
+  it('If cart is empty, show link and navigate to homepage after clicking', () => {})
+  it('If cart is empty, remove checkout button', () => {})
+  it('If cart is NOT empty, show checkout button and navigate to checkout', () => {})
 })
