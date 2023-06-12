@@ -43,12 +43,10 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
       }, {})
     }
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     transformed = testProducts
   }
 
-  // eslint-disable-next-line no-trailing-spaces
-  
   return transformed
 })
 

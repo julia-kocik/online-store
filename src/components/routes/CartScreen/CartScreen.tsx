@@ -31,7 +31,7 @@ const CartScreen = (): JSX.Element => {
                   <IoIosArrowUp/>
                 </div>
                 <div>{cartItem.amount}</div>
-                <div onClick={() => {
+                <div data-testid="cartDecreaseIcon" onClick={() => {
                   dispatch(decreaseItemQuantity(cartItem.id))
                 }}>
                   <IoIosArrowDown/>
