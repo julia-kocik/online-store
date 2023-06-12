@@ -25,7 +25,7 @@ const CartScreen = (): JSX.Element => {
               <CartScreenImage src={cartItem.image} alt={cartItem.title} />
               <div>{cartItem.title}</div>
               <CartPreviewAmount>
-                <div onClick={() => {
+                <div data-testid="cartIncreaseIcon" onClick={() => {
                   dispatch(increaseItemQuantity(cartItem.id))
                 }}>
                   <IoIosArrowUp/>

@@ -35,8 +35,17 @@ describe('CartScreen component', () => {
     const cartAfterRemove = store.getState().cartState.cart
     expect(cartAfterRemove).toHaveLength(1)
   })
-  // TODO
-  it('Increase amount of product after clicking increase icon', () => {})
+  it('Increase amount of product after clicking increase icon', () => {
+    const { store, getAllByTestId } = renderWithProviders(<MemoryRouter initialEntries={['/cart']}><CartScreen/></MemoryRouter>, {
+      preloadedState
+    })
+    const amountBeforeIncrease = store.getState().cartState?.cart[0]?.amount
+    expect(amountBeforeIncrease).toBe(3)
+    const increaseIcon = getAllByTestId('cartIncreaseIcon')
+    userEvent.click(increaseIcon[0])
+    const amountAfterIncrease = store.getState().cartState?.cart[0]?.amount
+    expect(amountAfterIncrease).toBe(4)
+  })
   it('Decrease amount of product after clicking decrease icon', () => {})
   it('Show empty cart message if cart is empty', () => {})
   it('If cart is empty, show link and navigate to homepage after clicking', () => {})
