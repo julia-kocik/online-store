@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { testProducts } from '../utils/test-products'
 
 interface Product {
   id: number
@@ -29,14 +30,25 @@ const initialState: ProductsState = {
 }
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
-  const response = await axios.get('https://fakestoreapi.com/products')
-  const transformed = response.data.reduce((acc, product) => {
-    if (!acc[product.category]) {
-      acc[product.category] = []
+  let transformed
+  try {
+    const response = await axios.get('https://fakestoreapi.com/products')
+    if (response.data) {
+      transformed = response.data.reduce((acc, product) => {
+        if (!acc[product.category]) {
+          acc[product.category] = []
+        }
+        acc[product.category].push(product)
+        return acc
+      }, {})
     }
-    acc[product.category].push(product)
-    return acc
-  }, {})
+  } catch (error) {
+    console.log(error)
+    transformed = testProducts
+  }
+
+  // eslint-disable-next-line no-trailing-spaces
+  
   return transformed
 })
 
