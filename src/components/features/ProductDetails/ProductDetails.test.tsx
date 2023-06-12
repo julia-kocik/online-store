@@ -26,7 +26,7 @@ describe('ProductDetails component', () => {
           }
         }
       })
-    const message = await element.findByText(/Compatibility Fast data transfers Improve PC /i)
+    const message = await element.findByText(/Your perfect pack for everyday use and walks in the forest/i)
     expect(message).toBeInTheDocument()
   })
 })
