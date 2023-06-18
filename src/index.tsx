@@ -11,6 +11,7 @@ import GlobalStyles from './GlobalStyles'
 import Topbar from './components/features/TopBar/Topbar'
 import { saveState } from './redux/browser-storage'
 import { debounce } from 'debounce'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 store.subscribe(
   // we use debounce to save the state once each 800ms
@@ -25,6 +26,7 @@ const root = ReactDOM.createRoot(
 )
 root.render(
   <React.StrictMode>
+    <Router>
      <Provider store={store}>
       {/* <PersistGate loading={null} persistor={persistor}> */}
         <Elements stripe={stripePromise}>
@@ -34,6 +36,7 @@ root.render(
         </Elements>
       {/* </PersistGate> */}
     </Provider>
+    </Router>
   </React.StrictMode>
 )
 

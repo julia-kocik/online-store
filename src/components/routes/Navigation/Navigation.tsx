@@ -1,5 +1,4 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
 import Logo from '../../common/Logo/Logo'
 import Navlinks from '../../common/NavLinks/Navlinks'
 import CartIcon from '../../features/CartIcon/CartIcon'
@@ -16,7 +15,6 @@ const Navigation = (): JSX.Element => {
           <Searchbar/>
           <CartIcon/>
         </NavigationContainer>
-        <Outlet/>
         <Footer/>
     </div>
   )
