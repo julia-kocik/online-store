@@ -1,18 +1,19 @@
 import React from 'react'
 import { renderWithProviders } from '../../../utils/test-utils'
 import { testProducts } from '../../../utils/test-products'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, MemoryRouter } from 'react-router-dom'
 import ProductDetails from './ProductDetails'
 
 describe('ProductDetails component', () => {
   it('renders product', async () => {
     const element = renderWithProviders(
-      <Router>
+      <MemoryRouter initialEntries={['/electronics/9']}>
         <Routes>
             <Route path="/" element={<Navigate to="electronics/9" />} />
             <Route path="/:category/:id" element={<ProductDetails />} />
           </Routes>
-        </Router>
+        </MemoryRouter>
+
       , {
         preloadedState: {
           cartState: {

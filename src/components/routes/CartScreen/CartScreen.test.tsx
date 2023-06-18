@@ -1,8 +1,9 @@
 import React from 'react'
 import { renderWithProviders } from '../../../utils/test-utils'
 import CartScreen from './CartScreen'
-import { MemoryRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import Home from '../Home/Home'
 
 describe('CartScreen component', () => {
   const preloadedState = {
@@ -11,6 +12,11 @@ describe('CartScreen component', () => {
         { amount: 3, color: '', id: 0, image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg', price: 55.99, title: 'Mens Cotton Jacket' },
         { amount: 2, color: '', id: 1, image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg', price: 25.99, title: 'Womens Cotton Jacket' }
       ]
+    }
+  }
+  const emptyCartState = {
+    cartState: {
+      cart: []
     }
   }
   it('Renders cart screen', () => {
@@ -57,7 +63,34 @@ describe('CartScreen component', () => {
     const amountAfterIncrease = store.getState().cartState?.cart[0]?.amount
     expect(amountAfterIncrease).toBe(2)
   })
-  it('If cart is empty, show link and navigate to homepage after clicking', () => {})
-  it('If cart is empty, remove checkout button', () => {})
+  it('If cart is empty, hide proceed to checkout and show return to homepage link', async () => {
+    const { queryByRole, getByRole } = renderWithProviders(<MemoryRouter initialEntries={['/cart']}><CartScreen/></MemoryRouter>, {
+      preloadedState: emptyCartState
+    })
+
+    const proceedToCheckout = queryByRole('button', { name: /proceed to checkout/i })
+    expect(proceedToCheckout).toBeNull()
+
+    const emptyCartLink = getByRole('link', { name: /your cart is empty, please return to homepage/i })
+    expect(emptyCartLink).toBeInTheDocument()
+  })
+  it('If cart is empty, clicking on link navigate to homepage', async () => {
+    const { findByRole, findByText } = renderWithProviders(
+        <MemoryRouter initialEntries={['/cart']}>
+          <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/cart" element={<CartScreen />} />
+          </Routes>
+        </MemoryRouter>
+        , {
+          preloadedState: emptyCartState
+        })
+
+    const emptyCartLink = await findByRole('link', { name: /your cart is empty, please return to homepage/i })
+    userEvent.click(emptyCartLink)
+    const homepageText = await findByText('electronics')
+    expect(homepageText).toBeInTheDocument()
+  })
+
   it('If cart is NOT empty, show checkout button and navigate to checkout', () => {})
 })
