@@ -4,6 +4,9 @@ import CartScreen from './CartScreen'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import Home from '../Home/Home'
+import Checkout from '../Checkout/Checkout'
+import { Elements } from '@stripe/react-stripe-js'
+import { stripePromise } from '../../../stripe/stripe.utils'
 
 describe('CartScreen component', () => {
   const preloadedState = {
@@ -92,5 +95,21 @@ describe('CartScreen component', () => {
     expect(homepageText).toBeInTheDocument()
   })
 
-  it('If cart is NOT empty, show checkout button and navigate to checkout', () => {})
+  it('If cart is NOT empty, show checkout button and navigate to checkout', async () => {
+    const { getByRole, findByText } = renderWithProviders(
+      <MemoryRouter initialEntries={['/cart']}>
+        <Routes>
+              <Route path="/checkout" element={<Elements stripe={stripePromise}><Checkout/></Elements>} />
+              <Route path="/cart" element={<CartScreen />} />
+        </Routes>
+      </MemoryRouter>, {
+        preloadedState
+      })
+
+    const proceedToCheckoutBtn = getByRole('button', { name: /proceed to checkout/i })
+    expect(proceedToCheckoutBtn).toBeInTheDocument()
+    userEvent.click(proceedToCheckoutBtn)
+    const checkoutText = await findByText('Review Order and Shipping')
+    expect(checkoutText).toBeInTheDocument()
+  })
 })
