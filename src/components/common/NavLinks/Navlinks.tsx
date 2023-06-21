@@ -49,7 +49,7 @@ const Navlinks = (): JSX.Element => {
               </li>
             ))}
           </NavlinksSubList>
-          <StyledArrowIcon onClick={toggleVisibility}/>
+          <StyledArrowIcon data-testid="toggleNavlinksIcon" onClick={toggleVisibility}/>
         </NavlinksLinks>
       </NavlinksList>
     </NavlinksContainer>

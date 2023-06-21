@@ -30,7 +30,7 @@ interface ImageProps extends HTMLAttributes<HTMLDivElement> {
 
 export const ActiveImage = styled.div<ImageProps>`
     background-image: url(${props => props.url});
-    background-size: 35%; 
+    background-size: 25%; 
     background-repeat: no-repeat; 
     background-position: center;
     box-shadow: ${variables.boxShadow};
